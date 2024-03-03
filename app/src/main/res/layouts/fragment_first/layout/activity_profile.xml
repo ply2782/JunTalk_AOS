@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="friendModel"
+            type="com.cross.juntalk2.model.FriendModel" />
+
+        <variable
+            name="myModel"
+            type="com.cross.juntalk2.model.MyModel" />
+
+        <variable
+            name="profileActivity"
+            type="com.cross.juntalk2.first.ProfileActivity" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:id="@+id/mainRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/viewLine2"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:background="@drawable/drawable_edittext_background" />
+
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/drawable_reverse_half_circle" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/closeImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/image_close" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/personImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/image_question_mark"
+                app:shapeAppearanceOverlay="@style/circle" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileImageChangeCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+
+                android:layout_alignRight="@+id/personImageView"
+                android:layout_alignBottom="@+id/personImageView"
+                android:layout_marginRight="-20dp"
+                android:layout_marginBottom="-10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/profileImageChangeImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:visibility="visible" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/nickNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personImageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/seven_l"
+                android:gravity="center"
+                android:hint="# 닉네임"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{friendModel ==null ? myModel.userId == null ?  null : myModel.userId : friendModel.userId == null ?  null : friendModel.userId }"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/nickNameCarcView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_below="@+id/nickNameTextView"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/nickNameImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@android:drawable/ic_menu_edit" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/myStateIntroduceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nickNameCarcView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/seven_l"
+                android:gravity="center"
+                android:hint="상태 메시지를 입력해주세요."
+                android:inputType="textMultiLine"
+                android:maxLength="60"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/myStateIntroduceCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/myStateIntroduceTextView"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:visibility="gone"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/myStateIntroduceImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@android:drawable/ic_menu_edit" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/clickImageButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/myStateIntroduceCardView"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/transparent"
+                android:onClick="@{(rootView)->profileActivity.animateFab(rootView)}"
+                android:src="@drawable/ic_menu" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/clickImageButton"
+                android:layout_marginTop="20dp">
+                <!-- 1 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/firstCardView"
+                    android:layout_width="130dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="20dp"
+                    android:background="@color/white"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="invisible"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/secondCardView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/firstCardTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/seven_l"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 2 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/secondCardView"
+                    android:layout_width="130dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="20dp"
+                    android:background="@color/white"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="invisible"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toRightOf="@+id/firstCardView"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/seven_l"
+                            android:text="# 게시판"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!-- 3 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/thirdCardView"
+                    android:layout_width="130dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="20dp"
+                    android:background="@color/white"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="invisible"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/fourthCardView"
+                    app:layout_constraintTop_toBottomOf="@+id/firstCardView"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thirdTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/seven_l"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!-- 4 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fourthCardView"
+                    android:layout_width="130dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="20dp"
+                    android:background="@color/white"
+                    android:checkable="true"
+                    android:clickable="true"
+                    app:cardBackgroundColor="@color/white"
+                    android:focusable="true"
+                    android:visibility="invisible"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toRightOf="@+id/thirdCardView"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/firstCardView"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/seven_l"
+                            android:text="# Junes List"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

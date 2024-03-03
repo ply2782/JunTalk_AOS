@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingBottom="20dp">
+
+            <!-- 상단 레이아웃-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:clipChildren="false">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/logoImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/juntalk_logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- 제목 텍스트뷰-->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/friendTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topRelativeLayout"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 클럽생성"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:id="@+id/infoLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topRelativeLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/clubCategoryTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColorHint="@color/black"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeErrorColor="@android:color/holo_red_light"
+                        app:errorEnabled="true"
+                        app:hintTextColor="@android:color/holo_red_light"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/clubCategoryTextInputEditTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/seven_l"
+                            android:hint="관련 태그를 입력해 주세요. ex) #카페 #집.."
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/gray_dark"
+                            android:textColorHint="@color/black"
+                            android:textCursorDrawable="@android:color/holo_red_light"
+                            android:textSize="13dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    androidx.legacy.widget.Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp" />
+
+                    <Button
+                        android:id="@+id/plusButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:gravity="center"
+                        android:text="추가"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipgroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:chipSpacing="10dp"
+                        app:itemSpacing="10dp"
+                        app:lineSpacing="10dp"
+                        app:singleLine="true" />
+                </HorizontalScrollView>
+
+                <!--<com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/thumbNailFlexBoxLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:alignContent="flex_start"
+                    app:alignItems="flex_start"
+                    app:flexDirection="row"
+                    app:flexWrap="wrap"
+                    app:showDivider="middle">
+
+                </com.google.android.flexbox.FlexboxLayout>-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/clubTitleInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/clubTitleInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/seven_l"
+                        android:hint="클럽 제목을 입력해 주세요."
+                        android:inputType="text"
+                        android:maxEms="100"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/gray_dark"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light"
+                        android:textSize="13dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/moneyTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout">
+
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lottieAnmation"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:translationZ="10dp"
+                        app:elevation="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/genderRelativeLayout"
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="birthday.json"
+                        app:lottie_loop="true" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/birthDayTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/seven_l"
+                        android:gravity="center"
+                        android:hint="달력을 클릭하여 \n생년월일을 입력해주세요."
+                        android:textColorHint="@color/color_26"
+                        android:textSize="13dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lottieAnmation" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/moneyTextInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/seven_l"
+                        android:hint="예상 필요 경비를 입력해주세요. "
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/gray_dark"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light"
+                        android:textSize="13dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:text="연령대 : "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/minAgeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seven_l"
+                            android:textColor="@color/black"
+                            android:textSize="13dp"
+                            tools:text="0" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/signTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seven_l"
+                            android:text=" ~ "
+                            android:textColor="@color/black"
+                            android:textSize="13dp"
+                            tools:text="~" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/maxAgeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seven_l"
+                            android:textColor="@color/black"
+                            android:textSize="13dp"
+                            tools:text="100" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp" />
+
+                <it.sephiroth.android.library.rangeseekbar.RangeSeekBar
+                    android:id="@+id/ageRangeBar"
+                    style="@style/Base.Sephiroth.Widget.RangeSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progressTint="@android:color/holo_blue_light"
+                    android:thumbTint="@android:color/holo_blue_dark"
+                    app:range_progress_endValue="100"
+                    app:range_progress_startEnd_minDiff="10"
+                    app:range_progress_startValue="0" />
+
+                <LinearLayout
+                    android:id="@+id/joinCountLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:text="참여 인원 : "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="50dp"
+                        android:layout_height="0dp" />
+
+                    <NumberPicker
+                        android:id="@+id/numberPicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp" />
+                </LinearLayout>
+
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/clubIntroduceTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="100"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/clubIntroduceTextInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/seven_l"
+                        android:hint="클럽을 소개해주세요."
+                        android:inputType="textMultiLine"
+                        android:maxEms="100"
+                        android:maxLength="100"
+                        android:maxLines="3"
+                        android:textColor="@color/gray_dark"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light"
+                        android:textSize="13dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="이미지 or 동영상 : "
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/plusFileButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_plus"
+                        android:tint="@android:color/holo_blue_light" />
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fileRecyclerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clipChildren="false"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/adapter_clubfile_item" />
+                </LinearLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="위치"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/searchButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="조회"
+                    android:textSize="13dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/mapImageView"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/map_icon"
+                        android:scaleType="centerCrop" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/placeTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/mapImageView"
+                        android:fontFamily="@font/seven_l"
+                        android:gravity="left|center_vertical"
+                        android:hint="위치를 설정해주세요."
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:id="@+id/transition_button"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoLinearLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="만들기"
+                android:textColor="@android:color/white"
+                app:defaultColor="#4DD0E1"
+                app:loaderColor="@android:color/white" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLL"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:id="@+id/backgroundColorChangeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/seven_l"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/todayTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/seven_l"
+                android:text="TODAY"
+                android:textColor="#F06292"
+                android:textSize="10dp"
+                android:visibility="gone"
+                tools:text="TODAY"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/clubListCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/drawable_gradation_background_orange"
+                android:fontFamily="@font/seven_l"
+                android:padding="5dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="10dp"
+                tools:text="999" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:visibility="gone"
+                android:layout_margin="5dp"
+                android:id="@+id/myImageView"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_start" />
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="friendImageUrl"
+            type="String" />
+
+
+        <variable
+            name="chattingModel"
+            type="com.cross.juntalk2.model.ChattingModel" />
+
+        <variable
+            name="chattingRoomAdapter"
+            type="com.cross.juntalk2.second.OpenChattingRoomAdapter" />
+        <variable
+            name="today"
+            type="String" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/regDateTextView"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:text="@{today}"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/seven_l"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/black_light"
+            android:textSize="13dp"
+            android:visibility="gone"
+            tools:text="2022-10-10 수요일"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_below="@+id/regDateTextView"
+            android:id="@+id/personImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:elevation="5dp"
+            android:outlineProvider="bounds"
+            android:outlineSpotShadowColor="@color/color_2"
+            android:background="@android:color/transparent"
+            android:onClick="@{(rootView)->chattingRoomAdapter.imageViewOnClick(rootView, friendImageUrl)}"
+            app:myImage="@{friendImageUrl}"
+            app:shapeAppearanceOverlay="@style/circle"
+            tools:src="@drawable/image_question_mark"
+            tools:visibility="invisible" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nickNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/personImageView"
+            android:layout_toRightOf="@+id/personImageView"
+            android:text="@{chattingModel.userId}"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            tools:text="엄마"
+            tools:visibility="visible" />
+
+
+        <RelativeLayout
+            android:id="@+id/conversationRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/nickNameTextView"
+            android:layout_toRightOf="@+id/personImageView"
+            android:gravity="left">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imoticonImageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/drawable_chatting_roundimage"
+                android:onClick="@{(rootView)->chattingRoomAdapter.imageViewOnClick(rootView,chattingModel.chatting_ImageFile)}"
+                android:scaleType="centerCrop"
+                app:bindingImageViewWithImoticon="@{chattingModel.chatting_ImageFile}"
+                tools:visibility="visible" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/conversationCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imoticonImageView"
+                android:background="@android:color/transparent"
+                android:layout_alignParentLeft="true"
+                android:visibility='@{chattingModel.userConversation ==null || chattingModel.userConversation.replace(" ","").trim().equals("") ? View.GONE : View.VISIBLE }'
+                app:cardBackgroundColor="#A0E5FF"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardUseCompatPadding="true">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/conversationTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:maxWidth="200dp"
+                    android:padding="10dp"
+                    android:text="@{chattingModel.userConversation}"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    tools:text="dasd" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/conversationCardView"
+                android:layout_toRightOf="@id/conversationCardView"
+                android:elevation="10dp"
+                android:text="@{chattingModel.userConversationTime}"
+                android:textColor="#80000000"
+                android:textSize="10dp"
+                android:visibility='@{chattingModel.userConversation ==null || chattingModel.userConversation.replace(" ","").trim().equals("") ? View.GONE : View.VISIBLE }'
+                tools:text="오후 10시 30" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/unReadCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/timeTextView"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/timeTextView"
+                android:elevation="10dp"
+                android:text="@{String.valueOf(chattingModel.unReadCount)}"
+                android:textColor="#F06292"
+                android:textSize="10dp"
+                android:visibility="@{String.valueOf(chattingModel.unReadCount).equals(`0`) ? View.GONE : View.VISIBLE}"
+                tools:text="10" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

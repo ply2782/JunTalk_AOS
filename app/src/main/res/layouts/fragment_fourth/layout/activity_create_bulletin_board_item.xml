@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 상단 레이아웃-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:clipChildren="false">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/closeImageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/image_close"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 게시판 작성"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <!--LabelButton -->
+                <com.lid.lib.LabelButtonView
+                    android:id="@+id/okButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/drawable_white_background"
+                    android:backgroundTint="#03a9f4"
+                    android:fontFamily="@font/seven_b"
+                    android:gravity="center"
+                    android:text="완료"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:visibility="visible"
+                    app:label_backgroundColor="#C2185B"
+                    app:label_distance="20dp"
+                    app:label_orientation="RIGHT_TOP"
+                    app:label_text="Complete"
+                    app:label_textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="2:1"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/contentLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topConstraintLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 카테고리"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/categoryViewPager2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 내용"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+                <!--내용 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nameTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintBottom_toTopOf="@+id/genderRelativeLayout"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/bulletinContentEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="내용을 입력해주세요."
+                        android:inputType="textMultiLine"
+                        android:maxLength="1000"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light"
+                        android:textSize="15dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 사진 및 동영상"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <!--사진 또는 동영상 섬네일 추가하기 -->
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/thumbNailFlexBoxLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:alignContent="flex_start"
+                    android:background="@color/white"
+                    app:alignItems="flex_start"
+                    app:flexDirection="row"
+                    app:flexWrap="wrap"
+                    app:showDivider="middle">
+
+                    <LinearLayout
+                        android:id="@+id/countLinearLayout"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fileCountTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/seven_l"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            tools:text="( 1 / 5 )" />
+
+                        <Button
+                            android:id="@+id/plusButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/seven_b"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:text="+"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+                </com.google.android.flexbox.FlexboxLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

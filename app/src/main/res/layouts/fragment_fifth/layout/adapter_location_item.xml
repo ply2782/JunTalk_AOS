@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickEvent"
+            type="com.cross.juntalk2.fifth.LocationRecyclerViewAdapter" />
+
+        <variable
+            name="location"
+            type="com.cross.juntalk2.model.KakaoMapClassUtis.Place" />
+    </data>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/addressLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/locationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:padding="5dp"
+                android:text="@{location.address_name}"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                tools:text="경기도 서울 시 하남 읍 " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/place_nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:padding="5dp"
+                android:text="@{location.place_name}"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                tools:text="경기도 서울 시 하남 읍 " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/category_nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:fontFamily="@font/seven_l"
+                android:padding="5dp"
+                android:text="@{location.category_name}"
+                android:textColor="@color/gray_light"
+                android:textSize="10dp"
+                tools:text="경기도 서울 시 하남 읍 " />
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/selectButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:onClick="@{(rootView) -> clickEvent.onClickEvent(rootView , location)}"
+            android:src="@drawable/exo_ic_check"
+            app:backgroundTint="#9464B5F6"
+            app:backgroundTintMode="src_in"
+            app:elevation="1dp"
+            app:fabCustomSize="30dp"
+            app:fabSize="auto"
+            app:rippleColor="@color/bg_login_button_highlighted"
+            app:useCompatPadding="true" />
+
+
+    </LinearLayout>
+</layout>

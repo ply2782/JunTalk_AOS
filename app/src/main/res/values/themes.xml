@@ -1,0 +1,142 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.JunTalk" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorPrimary">#448AFF</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <!--        <item name="android:windowBackground">@drawable/background</item>-->
+    </style>
+
+    <style name="Theme.default.Material" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorPrimary">#448AFF</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <!--        <item name="android:windowBackground">@drawable/background</item>-->
+    </style>
+
+    <style name="Theme.default.AppCompat" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorPrimary">#448AFF</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <!--        <item name="android:windowBackground">@drawable/background</item>-->
+    </style>
+
+
+    <dimen name="fab_size">50dp</dimen>
+
+    <!--shapeableImageView 모양 설정-->
+    <style name="circle">
+        <item name="cornerSize">50%</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="ChipTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#999999</item>
+
+    </style>
+
+    <!--shapeableImageView 모양 설정-->
+    <style name="halfCircle">
+        <item name="cornerSize">20%</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- 라운드 이미지 뷰 설정 부분-->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <!-- drawerLayout 테마 설정-->
+    <style name="Theme.SampleDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SampleDrawer.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
+
+
+    <!--alertDialog 애니메이션 설정-->
+    <style name="SlidingDialogAnimation" parent="@android:style/Theme.Dialog">
+        <!--        <item name="android:windowEnterAnimation">@anim/anim_up</item>-->
+        <!--        <item name="android:windowExitAnimation">@anim/anim_down</item>-->
+    </style>
+
+    <style name="SlidingDialogAnimation3" parent="@android:style/Theme.Dialog">
+        <item name="android:windowEnterAnimation">@anim/anim_up</item>
+        <item name="android:windowExitAnimation">@anim/anim_down</item>
+    </style>
+
+
+    <style name="DialogSlideAnim">
+        <item name="android:windowAnimationStyle">@style/SlidingDialogAnimation</item>
+    </style>
+
+
+    <dimen name="image_size">200dp</dimen>
+    <dimen name="image_margin">50dp</dimen>
+
+    <!-- 스프링 애니메이션 테마-->
+    <declare-styleable name="SpringIndicator">
+        <!--tab text color -->
+        <attr name="siTextColor" format="reference" />
+        <!--tab text color which is selected-->
+        <attr name="siSelectedTextColor" format="reference" />
+        <!--tab item bg -->
+        <attr name="siTextBg" format="reference" />
+        <!--tab text size-->
+        <attr name="siTextSize" format="dimension" />
+        <!--indicator bg color-->
+        <attr name="siIndicatorColor" format="reference" />
+        <!--indicator bg colors. should equals your titles count-->
+        <attr name="siIndicatorColors" format="reference" />
+        <!--max indicator radius-->
+        <attr name="siRadiusMax" format="dimension" />
+        <!--min indicator radius when moving-->
+        <attr name="siRadiusMin" format="dimension" />
+    </declare-styleable>
+
+    <!--  스플래시 화면 구현 위한 테마  -->
+    <style name="Theme.App.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@android:color/background_dark</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="postSplashScreenTheme">@style/Theme.AppCompat</item>
+    </style>
+
+
+    <style name="MaterialAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="UrlLinkAccent">
+        <item name="colorAccent">#1b73e8</item>
+    </style>
+</resources>

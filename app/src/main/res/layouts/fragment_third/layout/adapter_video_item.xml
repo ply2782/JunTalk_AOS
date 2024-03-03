@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.List" />
+
+        <import type="com.cross.juntalk2.model.VideoModel" />
+
+        <import type="java.util.Map" />
+
+        <variable
+            name="videoListAdapter"
+            type="com.cross.juntalk2.third.VideoListAdapter" />
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="videoModel"
+            type="com.cross.juntalk2.model.VideoModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="@{(rootView)->videoListAdapter.videoItemsOnClickEvent(rootView,videoModel)}"
+        android:paddingLeft="20dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/videoThumbNailImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:bindingVideoThumbNailImageView="@{videoModel.folderName+`/`+videoModel.videoName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/playImageButton"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignLeft="@+id/videoThumbNailImageView"
+            android:layout_alignTop="@+id/videoThumbNailImageView"
+            android:layout_alignRight="@+id/videoThumbNailImageView"
+            android:layout_alignBottom="@+id/videoThumbNailImageView"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_image_play"
+            android:tint="#F50057" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/videoNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/videoThumbNailImageView"
+            android:ellipsize="end"
+            android:fontFamily="@font/seven_l"
+            android:gravity="left"
+            android:padding="10dp"
+            android:text="@{videoModel.videoName}"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            tools:text="asdasjdasldjlasdjlsajddskaldjsakldjksaljdklasjdklsajdjskaldjksaldjsadjskal" />
+
+
+    </RelativeLayout>
+</layout>

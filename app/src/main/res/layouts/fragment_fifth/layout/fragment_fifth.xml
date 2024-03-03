@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topRelativeLayout"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:clipChildren="false">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/logoImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/juntalk_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/myClubListImageButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_mybox"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topRelativeLayout"
+            android:background="#0C355A"
+            android:orientation="vertical"
+            app:layoutDescription="@xml/demo_060_carousel">
+
+            <Space
+                android:id="@+id/center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <androidx.constraintlayout.helper.widget.Carousel
+                android:id="@+id/carousel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:carousel_backwardTransition="@+id/backward"
+                app:carousel_firstView="@+id/textView4"
+                app:carousel_forwardTransition="@+id/forward"
+                app:carousel_nextState="@+id/next"
+                app:carousel_previousState="@+id/previous"
+                app:constraint_referenced_ids="textView0,textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8" />
+
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_below="@+id/motionLayout">
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <!--<com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleTextView"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    app:chipSpacing="10dp" />-->
+
+                <!--<androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/top10ViewPager2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/titleTextView"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" />-->
+
+
+                <LinearLayout
+                    android:id="@+id/myCurrentStatusLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/drawable_viewline"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/currentWaitingTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:text="수락 대기 중 : "
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/currentWaitingTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:textColor="#F06292"
+                        android:textSize="13dp"
+                        tools:text="13" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/currentCompleteTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:text="수락 완료 : "
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/currentCompleteTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:textColor="#F06292"
+                        android:textSize="13dp"
+                        tools:text="13" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/currentMyMadeClubTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:text="내가 만든 클럽 : "
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/currentMyMadeClubTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:textColor="#F06292"
+                        android:textSize="13dp"
+                        tools:text="13" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/myCurrentStatusLinearLayout"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/caldalLL"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/beforeIB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="50dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/exo_ic_chevron_left"
+                        app:layout_constraintBottom_toBottomOf="@id/dateTV"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/dateTV"
+                        app:tint="@color/black" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent" />
+
+                    <LinearLayout
+                        android:id="@+id/dateSelectLL"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/dateTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="start|center_vertical"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:text="date"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent" />
+
+                    <ImageButton
+                        android:id="@+id/afterIB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="50dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/exo_ic_chevron_right"
+                        app:tint="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/caldalLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/calendarView"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/calendarRecyclerView"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/calendarView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="-1.1dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/drawable_calendar_background"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="center"
+                            android:text="@string/short_sunday"
+                            android:textColor="@android:color/holo_red_light"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="-1.1dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/drawable_calendar_background"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="center"
+                            android:text="@string/short_monday"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="-1.1dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/drawable_calendar_background"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="center"
+                            android:text="@string/short_tueday"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="-1.1dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/drawable_calendar_background"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="center"
+                            android:text="@string/short_wedday"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="-1.1dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/drawable_calendar_background"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="center"
+                            android:text="@string/short_thuday"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="-1.1dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/drawable_calendar_background"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="center"
+                            android:text="@string/short_friday"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/drawable_calendar_background"
+                            android:fontFamily="@font/seven_l"
+                            android:gravity="center"
+                            android:text="@string/short_satday"
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/calendarRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_below="@+id/caldalLL"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/calendar_item_list" />
+
+                <LinearLayout
+                    android:id="@+id/infoLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/calendarRecyclerView"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_start" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:text="내가 요청한 클럽"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/adLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/infoLinearLayout"
+                    android:layout_marginBottom="10dp"
+                    android:paddingBottom="50dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/adView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        ads:adSize="LARGE_BANNER"
+                        ads:adUnitId="@string/adMobInAppKey"></com.google.android.gms.ads.AdView>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/createClubFloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="60dp"
+            android:backgroundTint="#4DD0E1"
+            android:src="@android:drawable/ic_input_add"
+            app:elevation="0dp"
+            app:fabSize="auto"
+            app:rippleColor="@android:color/holo_red_light"
+            app:useCompatPadding="true" />
+    </RelativeLayout>
+</layout>

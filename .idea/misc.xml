@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.20364583333333333" />
+        <entry key="../../.gradle/caches/transforms-3/0dd10e9d768f7bada7ac288215757412/transformed/jetified-rangeseekbar-1.1.0/res/drawable/sephiroth_rsb_range_progress_material.xml" value="0.2" />
+        <entry key="../../.gradle/caches/transforms-3/0dd10e9d768f7bada7ac288215757412/transformed/jetified-rangeseekbar-1.1.0/res/drawable/sephiroth_rsb_range_progress_material_inverted.xml" value="0.2" />
+        <entry key="../../.gradle/caches/transforms-3/0dd10e9d768f7bada7ac288215757412/transformed/jetified-rangeseekbar-1.1.0/res/drawable/sephiroth_rsb_tick_mark_material.xml" value="0.2" />
+        <entry key="../../.gradle/caches/transforms-3/bec73755c19d7fce8fa61197db363e1c/transformed/jetified-k4l-video-trimmer-1.0/res/layout/view_time_line.xml" value="0.1765625" />
+        <entry key="app/src/main/res/drawable/background.xml" value="0.1985" />
+        <entry key="app/src/main/res/drawable/drawable_accepdted_gradation.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_calendar_background.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_circle.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_circle_currentstate.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_circle_currentstate_out.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_custom_checkbox.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/drawable/drawable_dialog.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_drawcircle.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_fulljoincount_gradation.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/drawable/drawable_gradation_background_mint.xml" value="0.196875" />
+        <entry key="app/src/main/res/drawable/drawable_gradation_background_orange.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_gradation_background_orange_rectangle.xml" value="0.21302083333333333" />
+        <entry key="app/src/main/res/drawable/drawable_gradationbottom.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/drawable_left_right_line.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_light_black_background_gradation.xml" value="0.196875" />
+        <entry key="app/src/main/res/drawable/drawable_read_count.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_seek_thumb.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/drawable_seekbar.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/drawable_selector.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_selector_alpha.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_selector_black.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/drawable/drawable_viewline_gradation.xml" value="0.21302083333333333" />
+        <entry key="app/src/main/res/drawable/ic_blockpeople.xml" value="0.1965" />
+        <entry key="app/src/main/res/drawable/ic_heart.xml" value="0.196875" />
+        <entry key="app/src/main/res/drawable/ic_photo.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/ic_upload.xml" value="0.1985" />
+        <entry key="app/src/main/res/drawable/ic_users_people_icon.xml" value="0.21302083333333333" />
+        <entry key="app/src/main/res/drawable/splash_icon.xml" value="0.18645833333333334" />
+        <entry key="app/src/main/res/font/fonts.xml" value="0.2046875" />
+        <entry key="app/src/main/res/layouts/dialog/layout/dialog_authentication.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/dialog/layout/dialog_blockreport.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/dialog/layout/dialog_loading.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layouts/dialog/layout/dialog_networkconnection.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/dialog/layout/dialog_openchatting.xml" value="0.26811594202898553" />
+        <entry key="app/src/main/res/layouts/dialog/layout/dialog_updatenotification.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/activity_club_list.xml" value="0.4108016967773438" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/activity_create_club.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/activity_join_club_people_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/activity_map.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/activity_open_chatting.xml" value="0.2908094618206047" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/activity_video_list_acitivty.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/adapter_clubfile_item.xml" value="0.2717391304347826" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/adapter_clubintroduce_file_item.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/adapter_clublist_item_cover.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/adapter_clublist_itme_detail.xml" value="0.26132246376811596" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/adapter_joinpeoplelist_person_item.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/adapter_location_item.xml" value="0.2717391304347826" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/adapter_videolist_item_list.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/calendar_date_item_list.xml" value="0.5" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/calendar_item_list.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/custom_map_ballon_item.xml" value="0.1796875" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/custom_myjoined_clubinfo.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/dialog_alert_choose_location.xml" value="0.1796875" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/dialog_mymadeclublist.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/fragment_fifth.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/list_card_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/list_card_item_larger_header.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/list_card_item_with_no_header.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layouts/fragment_fifth/layout/view_flexboxlayout_string_item.xml" value="0.1796875" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_call.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_my_lils_video.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_notice.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_pay.xml" value="0.29912280701754385" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_policy.xml" value="0.22826086956521738" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_request_for_admin.xml" value="0.19429347826086957" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_request_question_detail.xml" value="0.1703125" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/activity_user_bulletin.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_birthday.xml" value="0.16077898550724637" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_commonnotice_item.xml" value="0.6346719997802488" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_custom_dialog_menu_adapter.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_first.xml" value="0.45" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_popupmenu_custom_item_license.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_prayrequest_item.xml" value="0.16077898550724637" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_request_for_admin_item.xml" value="0.45" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_userbulletinboard_item.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/adapter_userimageorvideo_item.xml" value="0.18840579710144928" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/dialog_deleteaccount_footer.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/dialog_edit_bulletinboard.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/dialog_popupmenu_footer.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/dialog_popupmenu_header.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/fragment_first.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_first/layout/navigation_header_view.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/activity_create_bulletin_board_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/activity_create_lils_video_list.xml" value="0.2821557971014493" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/adapter_bulletinboard_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/adapter_categoryviewpager2_item.xml" value="0.2441123188405797" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/adapter_imageorvideo_item.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/adapter_lils_reply_item.xml" value="0.2821557971014493" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/adapter_mylils_video_item.xml" value="0.45" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/custom_exoplayer_controller.xml" value="0.1796875" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/dialog_customadapter_item_me.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/dialog_customadapter_item_time.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/dialog_customadapter_item_you.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/dialog_customcommentlist.xml" value="0.1796875" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/dialog_lils_reply.xml" value="0.2821557971014493" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/fragment_fourth.xml" value="0.15353260869565216" />
+        <entry key="app/src/main/res/layouts/fragment_fourth/layout/view_flexboxlayout_item.xml" value="0.16802536231884058" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/activity_chatting_room.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/activity_open_chatting_room.xml" value="0.1703125" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/activity_picture.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_chatting_date.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_chatting_empty.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_chatting_enter_exit.xml" value="0.5" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_chatting_item.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_chatting_me.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_chatting_you.xml" value="0.5" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_chattingnotice_item.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_dialog_friendlist_item.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_joinchatting_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_open_chatting_me.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_open_chatting_you.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/adapter_openchatting_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/chatting_show_date.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/fragment_second.xml" value="0.3929471032745592" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/roomjoinpeopleimage_item.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layouts/fragment_second/layout/widget_chatting_notification.xml" value="0.21875" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/activity_file_upload.xml" value="0.22" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/activity_music.xml" value="0.151268115942029" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/activity_video.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/adapter_comment_me.xml" value="0.15353260869565216" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/adapter_comment_time.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/adapter_comment_you.xml" value="0.15353260869565216" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/adapter_fileupload_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/adapter_musicfragment_item.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/adapter_video_item.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/dialog_adapter_musicuploadlist_item.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/dialog_adapter_musicuploadlist_item_vertical.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/dialog_block.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/dialog_musiclist_item.xml" value="0.184375" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/fragment_music.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/fragment_third.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/fragment_video.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/fragment_third/layout/widget_music_item.xml" value="0.1574167507568113" />
+        <entry key="app/src/main/res/layouts/main/layout/activity_join.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/main/layout/activity_main.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/main/layout/activity_whole.xml" value="0.184375" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_alarm.xml" value="0.25" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_club_list.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_create_club.xml" value="0.335" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_create_lils_video_list.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_image_crop.xml" value="0.24456521739130435" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_imagecontrol.xml" value="0.15615539858728558" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_join_club_people_list.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_map.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_my_lils_video.xml" value="0.1703125" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_open_chatting.xml" value="0.26268115942028986" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_open_chatting_room.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_pay.xml" value="0.375" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_policy.xml" value="0.26766304347826086" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_request_for_admin.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_request_question_detail.xml" value="0.3379583746283449" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_splash.xml" value="0.16614583333333333" />
+        <entry key="app/src/main/res/layouts/splash/layout/activity_video_trimmer.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layouts/splash/layout/fragment_test_lils_video.xml" value="0.175" />
+        <entry key="app/src/main/res/layouts/splash/layout/view_time_line.xml" value="0.1796875" />
+        <entry key="app/src/main/res/layouts/utils/layout/activity_custom_video_trimmer.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/utils/layout/activity_imagecontrol.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/utils/layout/adapter_clubintroduce_file_item.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layouts/utils/layout/is_view_empty.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layouts/utils/layout/view_time_line.xml" value="0.24375" />
+        <entry key="app/src/main/res/menu/bottomnavigation.xml" value="0.75" />
+        <entry key="app/src/main/res/menu/drawer_navigation_menu.xml" value="0.3223958333333333" />
+        <entry key="app/src/main/res/xml/activity_carousel_helper_scene.xml" value="0.1765625" />
+        <entry key="app/src/main/res/xml/demo_010_carousel.xml" value="0.1765625" />
+        <entry key="app/src/main/res/xml/demo_020_carousel.xml" value="0.1765625" />
+        <entry key="app/src/main/res/xml/demo_030_carousel.xml" value="0.1765625" />
+        <entry key="app/src/main/res/xml/demo_040_carousel.xml" value="0.1765625" />
+        <entry key="app/src/main/res/xml/demo_050_carousel.xml" value="0.1765625" />
+        <entry key="app/src/main/res/xml/demo_060_carousel.xml" value="0.1765625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.12" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

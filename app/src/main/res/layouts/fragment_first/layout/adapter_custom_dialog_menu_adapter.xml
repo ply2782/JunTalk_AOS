@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+            name="userInfoModel"
+            type="com.cross.juntalk2.model.FriendModel" />
+
+
+        <variable
+            name="myInfoModel"
+            type="com.cross.juntalk2.model.MyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="20dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/personImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:myImage="@{userInfoModel == null ? myInfoModel.userMainPhoto : userInfoModel.userMainPhoto}"
+            app:shapeAppearanceOverlay="@style/circle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/idTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/seven_l"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/personImageView"
+            app:layout_constraintLeft_toRightOf="@+id/personImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/userInfoLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personImageView">
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_weight="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:text="@{userInfoModel ==null ? `아이디` + ` : ` + myInfoModel.userId :  `아이디` + ` : ` + userInfoModel.userId}"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_weight="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:text="@{userInfoModel ==null ? `생일` + ` : ` + myInfoModel.userBirthDay :  `생일` + ` : ` + userInfoModel.userBirthDay}"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_weight="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                app:stringToRegDate="@{userInfoModel == null ?  myInfoModel.user_lastLogin :  userInfoModel.user_lastLogin}" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

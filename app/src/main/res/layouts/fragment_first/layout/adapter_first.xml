@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="firstAdapter"
+            type="com.cross.juntalk2.first.FirstAdapter" />
+
+        <variable
+            name="friendModel"
+            type="com.cross.juntalk2.model.FriendModel" />
+
+        <variable
+            name="isBlockUserId"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:contentPadding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/currentStateImageView"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@{friendModel.currentState.equals(`out`) ? @drawable/drawable_circle_currentstate_out : @drawable/drawable_circle_currentstate_in }" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/personImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_toRightOf="@+id/currentStateImageView"
+                    android:background="@android:color/transparent"
+                    android:onClick="@{(rootView)->firstAdapter.pictureClickEvent(rootView , friendModel.userMainPhoto)}"
+                    app:myImage="@{friendModel.userMainPhoto}"
+                    app:shapeAppearanceOverlay="@style/circle"
+                    tools:src="@drawable/image_man_purple" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toLeftOf="@+id/editImageButton"
+                    android:layout_toRightOf="@+id/personImageView"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/nickNameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/seven_l"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@{friendModel.userId}"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        tools:text="asdasdasd" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="5dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/stateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/seven_l"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:hint="상태메시지가 없습니다."
+                        android:textColorHint="@color/background_progress_color"
+                        android:text="@{friendModel.user_Introduce.equals(`null`) ? `` :friendModel.user_Introduce }"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        tools:text="asdasdasdasdasdasdasdasdasdasdasdasd" />
+                </LinearLayout>
+
+                <!-- 편집이미지 버튼-->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/editImageButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/blockPersonImageButton"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/seven_b"
+                    android:onClick="@{(rootView)->firstAdapter.editImageButtonOnClickEvent(rootView,position)}"
+                    android:text="Talk"
+                    android:textColor="#F06292"
+                    android:textSize="10dp" />
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/blockPersonImageButton"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="@{(rootView)->firstAdapter.blockPersonApi(rootView , position)}"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_blockpeople"
+                    android:tint="@color/black_light"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

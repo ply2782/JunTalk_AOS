@@ -1,0 +1,2 @@
+rootProject.name = "JunTalk2"
+include ':app'

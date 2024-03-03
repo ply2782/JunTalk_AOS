@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="sumPosition"
+            type="int" />
+
+        <variable
+            name="currentPosition"
+            type="int" />
+
+        <variable
+            name="allUrls"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.cross.juntalk2.fourth.ImageVideoView
+            android:id="@+id/imageVideoView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<com.google.android.exoplayer2.ui.StyledPlayerView
+            android:id="@+id/exoPlayer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:animation_enabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resize_mode="fit"
+            app:show_buffering="when_playing"
+            app:surface_type="surface_view"
+            app:use_artwork="true"
+            app:use_controller="false" />-->
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/playImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_image_play"
+            android:tint="@color/color_2"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageVideoView"
+            app:layout_constraintLeft_toLeftOf="@+id/imageVideoView"
+            app:layout_constraintRight_toRightOf="@+id/imageVideoView"
+            app:layout_constraintTop_toTopOf="@+id/imageVideoView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countPageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/seven_l"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            app:layout_constraintRight_toRightOf="@+id/imageVideoView"
+            app:layout_constraintTop_toTopOf="@+id/imageVideoView"
+            tools:text="@{`( `+(currentPosition +1)+` / ` + sumPosition+` )`}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

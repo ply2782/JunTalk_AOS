@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_white_background">
+
+        <!--휴대폰 번호 레이아웃-->
+        <LinearLayout
+            android:id="@+id/infoLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/certifyNumberLayout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="20dp"
+            tools:visibility="visible">
+
+            <!--휴대폰 번호 textView-->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="휴대폰 번호"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+
+            <!--spinner , textView-->
+            <LinearLayout
+                android:id="@+id/phoneNumberLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phoneTextView"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/firstSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/secondEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:background="@drawable/drawable_white_background"
+                    android:hint="1234"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/thirdEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/drawable_white_background"
+                    android:hint="5678"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <!--LabelButton -->
+            <com.lid.lib.LabelButtonView
+                android:id="@+id/okButton"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/drawable_white_background"
+                android:backgroundTint="#03a9f4"
+                android:fontFamily="@font/seven_b"
+                android:gravity="center"
+                android:text="인증번호 받기"
+                android:textColor="#ffffff"
+                app:label_backgroundColor="#C2185B"
+                app:label_distance="20dp"
+                app:label_height="50dp"
+                app:label_orientation="RIGHT_TOP"
+                app:label_text="MUST"
+                app:label_textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/certifyNumberLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/labelButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoLinearLayout"
+            app:layout_goneMarginBottom="20dp"
+            app:layout_goneMarginTop="20dp"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/recognizedNumberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_dark"
+                android:fontFamily="@font/seven_l"
+                android:gravity="center"
+                tools:text="인증번호 : "
+                android:textSize="15dp" />
+
+
+            <!--아이디 -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/certifyNumberTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:textColor="@color/gray_dark"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeErrorColor="@android:color/holo_red_light"
+                app:errorEnabled="true"
+                app:hintTextColor="@android:color/holo_red_light">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/certifyNumberTextInputEditTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="인증번호를 입력해주세요."
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@android:color/holo_red_light" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+        <!--LabelButton -->
+        <com.lid.lib.LabelButtonView
+            android:id="@+id/labelButton"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/drawable_white_background"
+            android:backgroundTint="#03a9f4"
+            android:fontFamily="@font/seven_b"
+            android:gravity="center"
+            android:text="본인인증"
+            android:textColor="#ffffff"
+            app:label_backgroundColor="#C2185B"
+            app:label_distance="20dp"
+            app:label_height="50dp"
+            app:label_orientation="RIGHT_TOP"
+            app:label_text="MUST"
+            app:label_textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

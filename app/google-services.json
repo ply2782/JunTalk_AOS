@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "517397119021",
+    "firebase_url": "https://juntalk2-bb291-default-rtdb.firebaseio.com",
+    "project_id": "juntalk2-bb291",
+    "storage_bucket": "juntalk2-bb291.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517397119021:android:ce5cb35d6130cd86c138a4",
+        "android_client_info": {
+          "package_name": "com.cross.JunTalk2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517397119021-fem649oqfa5qrp2ionobnipec39c3atl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5359goP3CTiUURD91aFarJyIAtIrNSDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517397119021-fem649oqfa5qrp2ionobnipec39c3atl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517397119021:android:56093b89a7443f44c138a4",
+        "android_client_info": {
+          "package_name": "com.cross.juntalk2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517397119021-fem649oqfa5qrp2ionobnipec39c3atl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5359goP3CTiUURD91aFarJyIAtIrNSDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517397119021-fem649oqfa5qrp2ionobnipec39c3atl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

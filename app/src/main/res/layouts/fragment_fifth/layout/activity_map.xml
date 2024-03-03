@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:id="@+id/infoRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:id="@+id/firstLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/locationTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/locationTextInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/seven_l"
+                        android:hint="위치를 입력해주세요. ex) 은행  , 맛집 .."
+                        android:inputType="text"
+                        android:textColor="@color/gray_dark"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light"
+                        android:textSize="13dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/locationSearchButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/drawable_gradationbottom"
+                    android:fontFamily="@font/seven_l"
+                    android:text="조회"
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sumTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/firstLinearLayout"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/seven_l"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                tools:text="검색 건수 : 45건 " />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/locationRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_below="@+id/sumTextView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/adapter_location_item" />
+
+            <RelativeLayout
+                android:id="@+id/pageLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/locationRecyclerView">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/beforePage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/seven_l"
+                    android:text="&lt; 이전페이지"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/nextPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/seven_l"
+                    android:text="다음페이지 &gt;"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/explainTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pageLinearLayout"
+                android:fontFamily="@font/seven_l"
+                android:padding="10dp"
+                android:text="* 마커를 클릭해 주시면 장소가 선택되어집니다."
+                android:textColor="@color/black_light"
+                android:textSize="10dp" />
+
+            <RelativeLayout
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/explainTextView" />
+
+        </RelativeLayout>
+</layout>

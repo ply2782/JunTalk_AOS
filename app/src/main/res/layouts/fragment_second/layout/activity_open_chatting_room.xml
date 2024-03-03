@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.cross.juntalk2.model.ChattingModel" />
+
+        <import type="java.util.List" />
+
+        <variable
+            name="chattingModelList"
+            type="com.cross.juntalk2.model.ChattingModel" />
+    </data>
+
+    <!--상단 탑 레이아웃 애니메이션 위한 레이아웃-->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:clipChildren="false">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/clickLottieAnimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.2"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="blossom.json"
+            app:lottie_loop="true" />
+
+        <!--coordinate 앱바 레이아웃 필요-->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clipChildren="false"
+            app:elevation="0dp"
+            app:liftOnScroll="true">
+
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:clipChildren="false"
+                android:fitsSystemWindows="true"
+                app:contentScrim="@drawable/drawable_edittext_background"
+                app:layout_scrollFlags="scroll|snap|enterAlways"
+                app:layout_scrollInterpolator="@android:anim/accelerate_decelerate_interpolator"
+                app:scrimAnimationDuration="@integer/material_motion_duration_long_1"
+                app:titleCollapseMode="fade">
+
+                <!--<ImageView
+                    android:id="@+id/imageView01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="parallax" />-->
+
+                <!-- CollapsingToolbar 같이 포함해서 wrap해도 되고 아니면 그냥
+                이렇게 toolbar 만 사용해도 애니메이션 가능-->
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/collapsingToolBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:background="@color/white"
+                    android:fitsSystemWindows="true"
+                    app:layout_scrollFlags="scroll|snap|enterAlways"
+                    app:layout_scrollInterpolator="@android:anim/accelerate_decelerate_interpolator"
+                    app:statusBarScrim="@android:color/transparent">
+
+                    <!--상단 레이아웃-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/topRelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/toggleButtonGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/optionImageButton"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:selectionRequired="true"
+                            app:singleSelection="true">
+
+                            <Button
+                                android:id="@+id/cattingAlarmON"
+                                style="?attr/materialButtonOutlinedStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/seven_l"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:text="알람 켜키"
+                                android:textSize="10dp" />
+
+                            <Button
+                                android:id="@+id/cattingAlarmOFF"
+                                style="?attr/materialButtonOutlinedStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/seven_l"
+                                android:gravity="center"
+                                android:text="알람 끄기"
+                                android:textSize="10dp" />
+
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/closeImageButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/image_close"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!-- 옵션 이미지버튼-->
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/optionImageButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/image_option"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/noticeImageButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/image_notice"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/optionImageButton"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/openSingImageButton"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/image_open_sign"
+                            android:visibility="gone"
+                            app:layout_constraintLeft_toLeftOf="@+id/noticeImageButton"
+                            app:layout_constraintRight_toRightOf="@+id/noticeImageButton"
+                            app:layout_constraintTop_toTopOf="@+id/noticeImageButton" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.appbar.MaterialToolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:id="@+id/noticeRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/bannerViewPager2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal" />
+
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="bottom" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/closeSignImageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/image_close_sign" />
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/conversationListRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                app:bindingOpenChattingAdapter="@{chattingModelList}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/editTextView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noticeRelativeLayout" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/menuImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_menu"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/editTextView" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editTextView"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:hint="채팅을 입력하세요."
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/imoticonBoxRelativeLayout"
+                app:layout_constraintLeft_toRightOf="@+id/menuImageButton"
+                app:layout_constraintRight_toLeftOf="@+id/sendButton" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sendButton"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:background="@drawable/drawable_circle"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextView"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/editBoxLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/drawable_half_circle"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/editTextView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/imoticonImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_imoticon" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/uploadImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/imoticonImageButton"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_upload" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/imoticonInfoImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/uploadImageButton"
+                    android:background="@android:color/transparent"
+                    android:src="@android:drawable/ic_dialog_info" />
+            </RelativeLayout>
+
+            <GridLayout
+                android:id="@+id/imoticonBoxRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:columnCount="1"
+                android:orientation="horizontal"
+                android:rowCount="3"
+                android:transitionGroup="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:visibility="visible">
+
+                <!--<androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#66000000"
+                    android:fontFamily="@font/seven_l"
+                    android:gravity="center"
+                    android:text="준비중입니다.."
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />-->
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/tiger"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tiger_9"
+                        android:tag="tiger" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/cute"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cute_9"
+                        android:tag="cute" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/pretty"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/pretty_9"
+                        android:tag="pretty" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/shocked"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/shocked_9"
+                        android:tag="shocked" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/love"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/love_9"
+                        android:tag="love" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/happy"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/happy_9"
+                        android:tag="happy" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="0dp" />
+                </LinearLayout>
+
+
+            </GridLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

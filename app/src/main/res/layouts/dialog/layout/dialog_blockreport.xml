@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawable_dialog"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/wholeReportCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <RadioGroup
+            android:id="@+id/radioGroupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/firstReportRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="부적절한 사진 및 동영상"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                app:buttonTint="#039BE5"
+                app:useMaterialThemeColors="true" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/secondReportRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:text="선정적 / 폭력적 사진 및 동영상"
+                app:buttonTint="#039BE5"
+                app:useMaterialThemeColors="true" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/thirdReportRadioButton"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="불쾌감을 자극하는 잔인한 사진 및 동영상"
+                app:buttonTint="#039BE5"
+                app:useMaterialThemeColors="true" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/fourthReportRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:text="기타 부적절한 사진 및 동영상"
+                app:buttonTint="#039BE5"
+                app:useMaterialThemeColors="true" />
+
+            <!--<com.google.android.material.card.MaterialCardView
+                android:id="@+id/firstReportCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/firstReportRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="부적절한 사진 및 동영상"
+                    app:buttonTint="#039BE5"
+                    app:useMaterialThemeColors="true" />
+
+            </com.google.android.material.card.MaterialCardView>-->
+
+
+            <!--<com.google.android.material.card.MaterialCardView
+                android:id="@+id/secondReportCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/secondReportRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="선정적 / 폭력적 사진 및 동영상"
+                    app:buttonTint="#039BE5"
+                    app:useMaterialThemeColors="true" />
+
+            </com.google.android.material.card.MaterialCardView>-->
+
+
+            <!--<com.google.android.material.card.MaterialCardView
+                android:id="@+id/thirdReportCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/thirdReportRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="불쾌감을 자극하는 잔인한 사진 및 동영상"
+                    app:buttonTint="#039BE5"
+                    app:useMaterialThemeColors="true" />
+
+            </com.google.android.material.card.MaterialCardView>-->
+
+            <!--<com.google.android.material.card.MaterialCardView
+                android:id="@+id/fourthReportCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/fourthReportRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기타 부적절한 사진 및 동영상"
+                    app:buttonTint="#039BE5"
+                    app:useMaterialThemeColors="true" />
+
+            </com.google.android.material.card.MaterialCardView>-->
+
+        </RadioGroup>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/buttonLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wholeReportCard"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/reportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/drawable_viewline"
+            android:fontFamily="@font/seven_l"
+            android:text="신고하기"
+            android:textColor="@color/black"
+            android:textSize="13dp" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="0dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/drawable_viewline"
+            android:fontFamily="@font/seven_l"
+            android:text="취소하기"
+            android:textColor="@color/black"
+            android:textSize="13dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="openChattingAdapter"
+            type="com.cross.juntalk2.second.OpenChattingListAdapter" />
+
+        <variable
+            name="roomModel"
+            type="com.cross.juntalk2.model.RoomModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/imageConstraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:myImage="@{roomModel.mainRoomPhoto}"
+                app:shapeAppearanceOverlay="@style/halfCircle" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+            android:id="@+id/roomInfoLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/imageConstraintLayout"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/roomTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/seven_l"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{roomModel.room_Title}"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                tools:text="방 제목"
+                tools:textSize="13dp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/roomHashTagTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/seven_l"
+                android:maxLines="2"
+                android:text="@{roomModel.roomHashTag}"
+                android:textColor="#80000000"
+                android:textSize="13dp"
+                tools:text="#해쉬 태그 "
+                tools:textSize="13dp" />
+
+        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/roomJoinCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/seven_l"
+            android:text="@{`참여 인원 : `+roomModel.room_joinCount}"
+            android:textColor="@color/black_light"
+            android:textSize="10dp"
+            tools:text="참여 인원 : 10명 "
+            tools:textSize="13dp" />
+
+
+    </RelativeLayout>
+</layout>

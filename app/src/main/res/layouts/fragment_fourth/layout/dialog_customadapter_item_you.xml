@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bulletinCommentModel"
+            type="com.cross.juntalk2.model.BulletinCommentModel" />
+        <variable
+            name="today"
+            type="String" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/regDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/seven_l"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{today}"
+            android:textColor="@color/black_light"
+            android:textSize="13dp"
+            tools:text="2022-10-10 수요일" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_below="@+id/regDateTextView"
+            android:id="@+id/personImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:elevation="0dp"
+            app:myImage="@{bulletinCommentModel.userMainPhoto}"
+            app:shapeAppearanceOverlay="@style/circle"
+            tools:src="@drawable/image_question_mark"
+            tools:visibility="invisible" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nickNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/personImageView"
+            android:layout_toRightOf="@+id/personImageView"
+            android:text="@{bulletinCommentModel.userId}"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            tools:text="엄마"
+            tools:visibility="visible" />
+
+
+        <LinearLayout
+            android:id="@+id/blockLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/nickNameTextView"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/nickNameTextView"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/reportTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:text="신고"
+                android:textColor="@color/black_light"
+                android:textSize="10dp" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="0dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:text="|"
+                android:textColor="@color/black_light"
+                android:textSize="10dp" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="0dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/blockTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:text="차단"
+                android:textColor="@color/black_light"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/conversationRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nickNameTextView"
+            android:layout_toRightOf="@+id/personImageView"
+            android:gravity="left">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imoticonImageView"
+                android:layout_width="150dp"
+                android:visibility="gone"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:scaleType="centerCrop"
+                tools:visibility="visible" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/conversationCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imoticonImageView"
+                android:layout_alignParentLeft="true"
+                app:cardBackgroundColor="#A0E5FF"
+                android:background="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardUseCompatPadding="true">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/conversationTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:maxWidth="200dp"
+                    android:padding="10dp"
+                    android:text="@{bulletinCommentModel.userComment}"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    tools:text="dasd" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/conversationCardView"
+                android:layout_toRightOf="@id/conversationCardView"
+                android:elevation="10dp"
+                app:bulletinTimeText="@{bulletinCommentModel.userCommentRegDate}"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10dp"
+                tools:text="오후 10시 30" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

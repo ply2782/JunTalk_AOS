@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <!--<item android:title="# UPLOAD">
+        <menu>
+            <group
+                android:id="@+id/upload"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/myBoard"
+                    android:icon="@drawable/btn_x"
+                    android:title="※ 나의 게시물 " />
+                <item
+                    android:id="@+id/myRequest"
+                    android:icon="@drawable/btn_x"
+                    android:title="※ 나의 중보 " />
+            </group>
+        </menu>
+    </item>-->
+
+
+    <item android:title="# EDIT">
+        <menu>
+            <group
+                android:id="@+id/edit"
+                android:checkableBehavior="single">
+                <!--<item
+                    android:id="@+id/myAlarm"
+                    android:icon="@drawable/btn_x"
+                    android:title="※ 알람 설정 " />-->
+                <item
+                    android:id="@+id/deleteMyAccount"
+                    android:icon="@drawable/exo_ic_chevron_right"
+                    android:iconTint="#F06292"
+                    android:title="※ 회원 탈퇴" />
+                <item
+                    android:id="@+id/logOutAccount"
+                    android:icon="@drawable/exo_ic_chevron_right"
+                    android:iconTint="#F06292"
+                    android:title="※ 로그아웃" />
+            </group>
+        </menu>
+    </item>
+
+    <!--<item android:title="# ABOUT">
+        <menu>
+            <group
+                android:id="@+id/about"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/myAbout"
+                    android:iconTint="#F06292"
+                    android:icon="@drawable/exo_ic_chevron_right"
+                    android:title="※ About JcTalk " />
+            </group>
+        </menu>
+    </item>-->
+
+    <item android:title="# INFO">
+        <menu>
+            <group
+                android:id="@+id/info"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/myService"
+                    android:icon="@drawable/exo_ic_chevron_right"
+                    android:iconTint="#F06292"
+                    android:title="※ open source library " />
+
+                <item
+                    android:id="@+id/policy"
+                    android:icon="@drawable/exo_ic_chevron_right"
+                    android:iconTint="#F06292"
+                    android:title="※ JunTalk 이용정책 " />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="# Service">
+        <menu>
+            <group
+                android:id="@+id/service"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sendMessageForAdmin"
+                    android:icon="@drawable/exo_ic_chevron_right"
+                    android:iconTint="#F06292"
+                    android:title="※ 건의사항 " />
+            </group>
+        </menu>
+    </item>
+</menu>

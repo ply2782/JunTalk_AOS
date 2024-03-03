@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="wholeActivity"
+            type="com.cross.juntalk2.main.WholeActivity" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layoutDirection="ltr">
+
+        <FrameLayout
+            android:id="@+id/fragmentContainerFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:alpha="0.2"
+                android:id="@+id/clickLottieAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="fallingbowls.json"
+                app:lottie_speed="0.3"
+                app:lottie_loop="true" />
+        </FrameLayout>
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            app:fabAlignmentMode="end"
+            app:fabAnimationMode="slide"
+            app:fabCradleMargin="5dp"
+            app:fabCradleRoundedCornerRadius="10dp"
+            app:fabCradleVerticalOffset="5dp"
+            app:hideOnScroll="true"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="auto">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView2"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                app:elevation="0dp"
+                app:itemHorizontalTranslationEnabled="true"
+                app:labelVisibilityMode="auto"
+                app:itemBackground="@android:color/white"
+                app:itemRippleColor="@android:color/holo_red_light"
+                app:itemTextColor="@color/black"
+                app:menu="@menu/bottomnavigation" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/mainFloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(rootView)->wholeActivity.animateFab(rootView)}"
+            android:src="@drawable/image_option"
+            android:visibility="gone"
+            app:layout_anchor="@id/appBar" />
+
+
+        <!-- 플로팅 액션 버튼 애니메이션 위해 추가된것-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/subFloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:onClick="@{(rootView)-> wholeActivity.clickMainFab(rootView)}"
+            android:src="@drawable/image_floatmainbutton"
+            android:visibility="invisible"
+            app:elevation="0dp"
+            app:fabSize="mini"
+            app:layout_anchor="@id/mainFloatingActionButton"
+            app:layout_anchorGravity="center_horizontal|top" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/callFloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="170dp"
+            android:src="@drawable/image_facetime"
+            android:visibility="invisible"
+            app:fabSize="mini"
+            app:layout_anchor="@id/subFloatingActionButton"
+            app:layout_anchorGravity="center_horizontal|top"
+            app:maxImageSize="30dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/messageFloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="240dp"
+            android:src="@drawable/image_call"
+            android:visibility="invisible"
+            app:fabSize="mini"
+            app:layout_anchor="@id/callFloatingActionButton"
+            app:layout_anchorGravity="center_horizontal|top"
+            app:maxImageSize="30dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/videoCallFloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="310dp"
+            android:src="@drawable/image_chat"
+            android:visibility="invisible"
+            app:fabSize="mini"
+            app:layout_anchor="@id/messageFloatingActionButton"
+            app:layout_anchorGravity="center_horizontal|top"
+            app:maxImageSize="30dp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

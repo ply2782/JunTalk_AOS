@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.List" />
+
+        <import type="com.cross.juntalk2.model.MusicModel" />
+
+        <variable
+            name="musicModel"
+            type="MusicModel" />
+
+        <variable
+            name="musicActivity"
+            type="com.cross.juntalk2.third.MusicActivity" />
+
+
+    </data>
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="bottom"
+        sothree:umanoDragView="@id/responseRelativeLayout"
+        sothree:umanoOverlay="true"
+        sothree:umanoPanelHeight="68dp"
+        sothree:umanoShadowHeight="4dp">
+
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/musicImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:bindingMusicFolderName="@{musicModel.folderName}"
+                    app:bindingMusicImage="@{musicModel.musicImage}"
+                    android:background="@drawable/ic_image_music"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/blockImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_three_dot"
+                    android:layout_marginTop="20dp"
+                    android:onClick="@{(rootView)->musicActivity.blockImageButton(rootView,musicModel)}"
+                    android:layout_marginRight="20dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/musicTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/seven_l"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@{musicModel.musicName}"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/musicImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.truizlop.fabreveallayout.FABRevealLayout
+                android:id="@+id/fab_reveal_layout"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/topConstraintLayout">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/mainFloatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:background="@color/white"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/mainfloationactionbutton" />
+
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:id="@+id/main_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/mainFloatingActionButton">
+
+
+                    <LinearLayout
+                        android:id="@+id/playButtonLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/leftPlayImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.5"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_image_left_play" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/stopImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.5"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_image_stop" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/playImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.5"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_image_play" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/rightPlayImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.5"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_image_right_play" />
+
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/timeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/musicSeekBar"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/seven_b"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        tools:text="0:00 / 3:17" />
+
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/musicSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/playButtonLinearLayout"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:progressDrawable="@drawable/drawable_seekbar"
+                        android:thumb="@drawable/drawable_seek_thumb"
+                        android:thumbOffset="10dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:id="@+id/secondary_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/closeImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/image_close" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/fileDownImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_image_filedown" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/fileDownImageButton"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/download_this_music"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+            </com.truizlop.fabreveallayout.FABRevealLayout>
+        </RelativeLayout>
+
+        <!--슬라이딩 하단 패널 댓글 입력레이아웃-->
+        <RelativeLayout
+            android:id="@+id/responseRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/drawable_half_circle">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/dragImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_menu" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/responseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dragImageButton"
+                android:layout_marginLeft="20dp"
+                android:text="@string/response"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/responseRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/editLinearLayout"
+                android:layout_below="@+id/responseTextView"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/adapter_comment_me" />
+
+
+            <LinearLayout
+                android:id="@+id/editLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/commentEditTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:hint="댓글을 입력해주세요."
+                    android:inputType="textMultiLine"
+                    android:maxHeight="80dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15dp" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/sendImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/image_message" />
+            </LinearLayout>
+        </RelativeLayout>
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+</layout>

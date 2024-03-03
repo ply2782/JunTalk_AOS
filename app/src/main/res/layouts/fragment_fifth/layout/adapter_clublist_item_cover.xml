@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wholeCardViewLayout"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="@dimen/card_cover_height"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="5dp">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mainThumbNailImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mainTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/blockImageButton"
+            android:background="@color/black_light"
+            android:ellipsize="end"
+            android:fontFamily="@font/seven_l"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            tools:text="Title" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/blockImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/mainTitleTextView"
+            android:layout_alignBottom="@+id/mainTitleTextView"
+            android:layout_alignParentRight="true"
+            android:background="@color/black_light"
+            android:src="@drawable/ic_three_dot"
+            android:tint="@color/white" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

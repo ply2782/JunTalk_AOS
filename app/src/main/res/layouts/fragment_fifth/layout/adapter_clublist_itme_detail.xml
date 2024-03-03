@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:id="@+id/wholeRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fileConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imageOrVideoRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/adapter_clubintroduce_file_item" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/joinButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/drawable_gradation_background_orange_rectangle"
+                    android:fontFamily="@font/seven_l"
+                    android:text="참여하기"
+                    android:textColor="@android:color/white"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fileConstraintLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/seven_l"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                tools:text="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/titleTextView"
+                android:layout_marginTop="5dp"
+                android:background="#33000000" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/clubIntroduceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewLine"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/seven_l"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                tools:text="클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개클럽소개" />
+
+            <LinearLayout
+                android:id="@+id/joinCountLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/clubIntroduceTextView"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_users_people_icon" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/joinCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/scrollView"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/seven_l"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13dp"
+                    tools:text="참여인원" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/expectedMoneyLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ageLinearLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_korea_money" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/expectedMoneyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/scrollView"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/seven_l"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13dp"
+                    tools:text="예상 경비" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ageLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/joinCountLinearLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_search_icon" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ageCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/scrollView"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/seven_l"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13dp"
+                    tools:text="참여 가능 연령대" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/mapLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expectedMoneyLinearLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/map_icon" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/locationTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/seven_l"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13dp"
+                    tools:text="위치" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/lookMapButton"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/drawable_gradationbottom"
+                    android:fontFamily="@font/seven_l"
+                    android:text="보기"
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mapLinearLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/hashTagChipGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:chipSpacing="10dp"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.cardview.widget.CardView>

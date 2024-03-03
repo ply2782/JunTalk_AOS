@@ -1,0 +1,347 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.firebase.appdistribution'
+    id 'com.google.android.gms.oss-licenses-plugin'
+}
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+
+android {
+
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.cross.JunTalk2"
+        minSdkVersion 23
+        targetSdkVersion 33
+        versionCode 72
+        versionName "1.0"
+        ndk {
+            debugSymbolLevel 'FULL'
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
+        //vetcor animation 가능
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+    }
+
+    //androidx.appcompat 에서 나오는 버그 중 하나가 Thread .. 라는 에러로그가 떠서 이걸 넣어줌
+    configurations.all {
+        resolutionStrategy.eachDependency {
+            details ->
+                def requested = details.requested
+                if (requested.group == "androidx.appcompat") {
+                    if (!requested.name.startsWith("multidex")) {
+                        details.useVersion "1.+"
+                    }
+                }
+        }
+    }
+
+
+    //릴리즈용 프로가드 설정
+    buildTypes {
+
+        debug {
+            minifyEnabled false // 난독화
+            shrinkResources false // 사용하지 않는 코드 정리
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true // 난독화
+            shrinkResources true // 사용하지 않는 코드 정리
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    //데이터 바인딩 위한 옵션
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
+    // layout 을 구분짓게 위해 따로 layouts 라는 폴더를 만들고 거기에 해당하는 layout 을  넣음
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/splash',
+                            'src/main/res/layouts/join',
+                            'src/main/res/layouts/login',
+                            'src/main/res/layouts/main',
+                            'src/main/res/layouts/include',
+                            'src/main/res/layouts/dialog',
+                            'src/main/res/layouts/adapter_items',
+                            'src/main/res/layouts/fragment_first',
+                            'src/main/res/layouts/fragment_second',
+                            'src/main/res/layouts/fragment_third',
+                            'src/main/res/layouts/fragment_fourth',
+                            'src/main/res/layouts/fragment_fifth',
+                            'src/main/res/layouts/search',
+                            'src/main/res/layouts/utils',
+                            'src/main/res'
+                    ]
+        }
+    }
+    namespace 'com.cross.juntalk2'
+}
+
+
+dependencies {
+
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:31.0.2')
+    implementation 'com.google.firebase:firebase-perf'
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.1'
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+    implementation 'com.google.firebase:firebase-auth'
+
+    //open source 라이브러리
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
+
+    //default android dependency
+    runtimeOnly group: 'androidx.appcompat', name: 'appcompat', version: '1.7.0-alpha01'
+    /*implementation 'androidx.appcompat:appcompat:1.3.1'*/
+    runtimeOnly group: 'com.google.android.material', name: 'material', version: '1.7.0'
+    /*implementation 'com.google.android.material:material:1.4.0'*/
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-ui:2.5.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.media2:media2-exoplayer:1.2.1'
+
+
+    //android Test
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestUtil 'androidx.test:orchestrator:1.4.1'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+
+    //splash Screen
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+
+
+    ///worker 작업
+    def work_version = "2.7.1"
+    // (Java only)
+    implementation "androidx.work:work-runtime:$work_version"
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+    // optional - RxJava2 support
+    implementation "androidx.work:work-rxjava2:$work_version"
+    // optional - GCMNetworkManager support
+    implementation "androidx.work:work-gcm:$work_version"
+    // optional - Test helpers
+    androidTestImplementation "androidx.work:work-testing:$work_version"
+    // optional - Multiprocess support
+    implementation "androidx.work:work-multiprocess:$work_version"
+
+
+    //android DataBase Room
+    def room_version = '2.4.3'
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // optional - RxJava2 support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+    // optional - RxJava3 support for Room
+    implementation "androidx.room:room-rxjava3:$room_version"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+    // optional - Paging 3 Integration
+//    implementation 'androidx.room:room-paging:2.5.0-beta01'
+
+    //adMob 광고
+    implementation 'com.google.android.gms:play-services-ads:21.3.0'
+
+
+    //databinding
+    def lifecycle_version = '2.5.1'
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    // optional - helpers for implementing LifecycleOwner in a Service
+    implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+    // optional - ReactiveStreams support for LiveData
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+
+
+    //카카오 라이브러리
+    def kakao_Version = "2.9.1"
+    implementation "com.kakao.sdk:v2-user:$kakao_Version" // 카카오 로그인
+    implementation "com.kakao.sdk:v2-talk:$kakao_Version" // 친구, 메시지(카카오톡)
+    implementation "com.kakao.sdk:v2-link:$kakao_Version" // 메시지(카카오링크)
+    implementation "com.kakao.sdk:v2-auth:$kakao_Version" // auth
+    // 카카오 로그인
+    implementation group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
+    // 카카오톡
+    implementation group: project.KAKAO_SDK_GROUP, name: 'kakaotalk', version: project.KAKAO_SDK_VERSION
+
+    //글라이드 라이브러리 서버와 통신할때 혹은 인터넷 이미지 가져올때
+    implementation('com.github.bumptech.glide:glide:4.14.2') {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'androidx.annotation:annotation:1.5.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    implementation('com.github.bumptech.glide:glide:4.14.2@aar') {
+        transitive = true
+    }
+
+
+    //소켓IO 통신으로 보통 노드js 와 통신할때 주로 쓰임
+    implementation('io.socket:socket.io-client:2.1.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+
+
+    //stomp 서버와 웹소켓으로 솥통하는 부분
+    implementation 'com.github.NaikSoftware:StompProtocolAndroid:1.6.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
+
+    //rxjava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.10'
+
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    //다이나믹 애니메이션
+    def dynamicanimation_version = "1.0.0"
+    implementation "androidx.dynamicanimation:dynamicanimation:$dynamicanimation_version"
+
+    //inject
+    implementation 'javax.inject:javax.inject:1'
+
+    //exoplayer2 영상재생용
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.1'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.1'
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.18.1'
+
+
+    //Lombok -> Getter Setter
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // 로티애니메이션
+    implementation 'com.airbnb.android:lottie:5.2.0'
+
+    //FABReavealLayout
+    implementation 'com.truizlop.fabreveallayout:library:1.0.0'
+
+    //Foldable Layout
+    implementation 'com.vincentbrison.openlibraries.android:foldablelayout:0.0.1@aar'
+
+    //LabelView
+    implementation 'com.github.linger1216:labelview:v1.1.2'
+
+    //이미지 회전
+    implementation 'androidx.exifinterface:exifinterface:1.3.5'
+
+    //슬라이딩 패널 (아래에서 위)
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
+    //popupMenu
+    implementation 'com.github.skydoves:powermenu:2.2.1'
+
+    //flexboxlayout
+    implementation "com.google.android:flexbox:2.0.1"
+
+    //indicator
+    implementation 'me.relex:circleindicator:2.1.6'
+
+    //viewPager2
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    //refreshLayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //media notificatrion
+    implementation 'androidx.media:media:1.6.0'
+
+    //결제 라이브러리
+    def billing_version = '5.0.0'
+    implementation "com.android.billingclient:billing:$billing_version"
+
+    // shimmer 라이브러리
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //구글 크로넷 으로 http 요청 등 네트워크 요청 역할
+    implementation 'com.google.android.gms:play-services-cronet:18.0.1'
+
+    //rangeSeekBar
+    implementation 'com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.1.0'
+    implementation 'it.sephiroth.android.library.rangeseekbar:rangeseekbar:1.1.0'
+
+    // folderableLayout
+    implementation 'com.vincentbrison.openlibraries.android:foldablelayout:0.0.1@aar'
+
+    //transitionButton
+    implementation 'com.royrodriguez:transitionbutton:0.2.0'
+
+    //타켓뷰
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.3'
+
+    //카카오 맵 라이브러리
+    implementation files('libs/libDaumMapAndroid.jar')
+
+    //비디오 트림 라이브러리
+    implementation 'life.knowledge4:k4l-video-trimmer:1.0'
+
+    //카드 레이아웃
+    implementation 'com.loopeer.library:cardstack:1.0.2'
+
+    //업데이트 관련
+    implementation 'com.google.android.play:core:1.10.3'
+
+
+}

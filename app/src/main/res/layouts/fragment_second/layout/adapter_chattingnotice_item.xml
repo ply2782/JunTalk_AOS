@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="noticeModel"
+            type="com.cross.juntalk2.model.NoticeModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/mainPhotoImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            app:myImage="@{noticeModel.mainPhoto}"
+            app:shapeAppearanceOverlay="@style/circle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mainTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/mainPhotoImageView"
+            android:ellipsize="end"
+            android:fontFamily="@font/seven_b"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:text="@{noticeModel.mainTitle}"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/subContentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mainTitleTextView"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/mainPhotoImageView"
+            android:ellipsize="end"
+            android:fontFamily="@font/seven_l"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:text="@{noticeModel.subContent}"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+</layout>

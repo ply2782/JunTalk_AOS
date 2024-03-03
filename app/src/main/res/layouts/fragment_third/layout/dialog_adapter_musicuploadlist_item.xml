@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dialogMusicListAdapter"
+            type="com.cross.juntalk2.third.DialogMusicListAdapter" />
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="musicModel"
+            type="com.cross.juntalk2.model.MusicModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:background="@color/white"
+            android:id="@+id/musicCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{(rootView)->dialogMusicListAdapter.wholeCardViewOnClickEvent(rootView,musicModel,position)}"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/drawable_music_background_circle">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@{String.valueOf(position)}"
+                    android:textColor="@color/gray_light"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/seven_l"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_margin="10dp"
+                    android:id="@+id/musicImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:bindingMusicThumbNailUri="@{musicModel.musicImage}"
+                    app:layout_constraintBottom_toTopOf="@+id/headPhoneImageView"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/circle"
+                    tools:src="@drawable/image_woman_purple" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/headPhoneImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_image_headphone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/musicImageView" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/musicTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxWidth="200dp"
+                    android:maxLines="2"
+                    android:text="@{musicModel.musicName}"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/seven_l"
+                    android:textSize="13dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/headPhoneImageView"
+                    tools:text="많이나는 너를 사랑해 아주 많이" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

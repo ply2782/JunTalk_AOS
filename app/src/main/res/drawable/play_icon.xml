@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="128dp"
+    android:height="128dp"
+    android:viewportWidth="90"
+    android:viewportHeight="50">
+
+    <group android:name="play_icon_first">
+        <path
+            android:name="first"
+            android:pathData="M 10,50 L 10,40 L 20,40 L 20,50 Z"
+            android:fillColor="@color/colorAccent" />
+    </group>
+    <group android:name="play_icon_second">
+        <path
+            android:name="second"
+            android:pathData="M 30,50 L 30,20 L 40,20 L 40,50 Z"
+            android:fillColor="@color/colorAccent" />
+    </group>
+    <group android:name="play_icon_third">
+        <path
+            android:name="third"
+            android:pathData="M 50,50 L 50,10 L 60,10 L 60,50 Z"
+            android:fillColor="@color/colorAccent" />
+    </group>
+    <group android:name="play_icon_fourth">
+        <path
+            android:name="fourth"
+            android:pathData="M 70,50 L 70,30 L 80,30 L 80,50 Z"
+            android:fillColor="@color/colorAccent" />
+    </group>
+</vector>

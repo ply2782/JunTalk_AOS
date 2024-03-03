@@ -1,0 +1,92 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">JunTalk</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="kakaoRestApiKey">KakaoAK 4891dca7cfbf3148148cb7920ebf4062</string>
+    <string-array name="entries">
+        <item>010</item>
+        <item>016</item>
+        <item>011</item>
+        <item>017</item>
+        <item>031</item>
+        <item>070</item>
+    </string-array>
+
+    <string name="adMobAppKey">ca-app-pub-9868504639371547~3360366751</string>
+    <string name="adMobInAppKey">ca-app-pub-9868504639371547/1253062251</string>
+
+    <string name="adMobTestAppKey">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="adMobTestInAppKey">ca-app-pub-3940256099942544/6300978111</string>
+
+
+    <string name="download_this_music">DownLoad this music</string>
+    <string name="response"># 댓글</string>
+    <string name="mainfloationactionbutton">mainFloationActionButton</string>
+    <string name="custom_license_title">OpenSource List</string>
+
+    <array name="indicator_colors">
+        <item>@color/indicator_1</item>
+        <item>@color/indicator_2</item>
+        <item>@color/indicator_3</item>
+        <item>@color/indicator_4</item>
+    </array>
+
+    <string-array name="openlicense">
+        <item>com.airbnb.android:lottie:4.1.0</item>
+        <item>com.truizlop.fabreveallayout:library:1.0.0</item>
+        <item>com.vincentbrison.openlibraries.android:foldablelayout:0.0.1@aar</item>
+        <item>com.github.linger1216:labelview:v1.1.2</item>
+        <item>com.sothree.slidinguppanel:library:3.4.0</item>
+        <item>com.github.skydoves:powermenu:2.2.0</item>
+        <item>me.relex:circleindicator:2.1.6</item>
+        <item>com.facebook.shimmer:shimmer:0.5.0</item>
+        <item>com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.1.0</item>
+        <item>it.sephiroth.android.library.rangeseekbar:rangeseekbar:1.1.0</item>
+        <item>com.royrodriguez:transitionbutton:0.2.0</item>
+        <item>com.getkeepsafe.taptargetview:taptargetview:1.13.3</item>
+        <item>life.knowledge4:k4l-video-trimmer:1.0</item>
+    </string-array>
+
+    <string-array name="imoticonLicense">
+        <item>--Imoticon 저작권--</item>
+        <item>https://www.flaticon.com/free-icons/shiba-inu Shiba-inu icons created by AomAm - Flaticon</item>
+        <item>https://www.flaticon.com/free-icons/tiger Tiger icons created by Freepik - Flaticon</item>
+        <item>https://www.flaticon.com/free-stickers/fauna Fauna stickers created by Stickers - Flaticon</item>
+    </string-array>
+
+    <string name="app_name2" translatable="false">CustomCalendar</string>
+    <string name="short_monday" translatable="false">월</string>
+    <string name="short_tueday" translatable="false">화</string>
+    <string name="short_wedday" translatable="false">수</string>
+    <string name="short_thuday" translatable="false">목</string>
+    <string name="short_friday" translatable="false">금</string>
+    <string name="short_satday" translatable="false">토</string>
+    <string name="short_sunday" translatable="false">일</string>
+    <string name="error_cleartext_not_permitted">Cleartext HTTP traffic not permitted. See https://exoplayer.dev/issues/cleartext-not-permitted</string>
+    <string name="error_generic">Playback failed</string>
+    <string name="error_drm_unsupported_before_api_18">DRM content not supported on API levels below 18</string>
+    <string name="error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+    <string name="error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="error_querying_decoders">Unable to query device decoders</string>
+    <string name="error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+    <string name="error_unsupported_video">Media includes video tracks, but none are playable by this device</string>
+    <string name="error_unsupported_audio">Media includes audio tracks, but none are playable by this device</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="short_seconds">sec</string>
+    <string name="megabyte">MB</string>
+    <string name="kilobyte">KB</string>
+
+
+    <!--    update String xml-->
+    <string name="updateTitle">앱이 업데이트되었습니다.</string>
+    <string name="subUpdateContent">업데이트 버전이 있습니다. \n업데이트 하시겠습니까?</string>
+    <string name="update_ok">네, \n업데이트 하겠습니다.</string>
+    <string name="update_cancel">아니요, \n나중에 하겠습니다.</string>
+
+    <!--    internet Connection Status-->
+    <string name="disconnection">인터넷 연결 상태가 불안정합니다. \n인터넷 연결상태를 확인해주세요.</string>
+    <string name="disconnection_ok">닫기</string>
+</resources>

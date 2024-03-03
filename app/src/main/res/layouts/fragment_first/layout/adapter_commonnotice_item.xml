@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="commonNoticeModel"
+            type="com.cross.juntalk2.model.CommonNoticeModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/junTalkOwnerImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            app:myImage="@{commonNoticeModel.mainPhoto}"
+            app:shapeAppearanceOverlay="@style/circle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nickNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/junTalkOwnerImageView"
+            android:layout_alignBottom="@+id/junTalkOwnerImageView"
+            android:layout_toRightOf="@+id/junTalkOwnerImageView"
+            android:fontFamily="@font/seven_l"
+            android:gravity="right|center"
+            android:paddingRight="10dp"
+            android:text="@{commonNoticeModel.userId}"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            tools:text="닉네임" />
+
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignTop="@+id/junTalkOwnerImageView"
+            android:layout_alignRight="@+id/regDateTextView"
+            android:background="@drawable/drawable_custom_checkbox"
+            android:button="@android:color/transparent"
+            android:tag="@{commonNoticeModel.notice_Index}" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/regDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/checkbox"
+            android:fontFamily="@font/seven_l"
+            android:gravity="right"
+            android:layout_marginTop="5dp"
+            android:paddingRight="10dp"
+            android:text="@{commonNoticeModel.notice_RegDate}"
+            android:textColor="#80000000"
+            android:textSize="10dp"
+            tools:text="2021-10-10 19:00 am" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/noticeContentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/junTalkOwnerImageView"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_viewline"
+            android:fontFamily="@font/seven_l"
+            android:padding="10dp"
+            android:text="@{commonNoticeModel.notice_Content}"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            tools:text="asdasdasd" />
+
+    </RelativeLayout>
+</layout>

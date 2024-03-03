@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="java.util.List"/>
+        <import type="com.cross.juntalk2.model.MusicModel"/>
+        <variable
+            name="musicModelList"
+            type="List&lt;MusicModel&gt;" />
+    </data>
+
+    <RelativeLayout
+        android:background="@drawable/drawable_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/musicUploadListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:bindingMusicModelAdapterForUpload="@{musicModelList}"
+            android:orientation="vertical"
+            tools:listitem="@layout/dialog_adapter_musicuploadlist_item_vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </RelativeLayout>
+</layout>

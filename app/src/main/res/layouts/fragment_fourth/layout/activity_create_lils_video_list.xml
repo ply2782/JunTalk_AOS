@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 상단 레이아웃-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@android:color/transparent"
+                android:clipChildren="false">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/logoImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/juntalk_logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/infoLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topRelativeLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 태그"
+                    android:textColor="#F06292"
+                    android:textSize="13dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/clubCategoryTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColorHint="@color/black"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeErrorColor="@android:color/holo_red_light"
+                        app:errorEnabled="true"
+                        app:hintTextColor="@android:color/holo_red_light"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/clubCategoryTextInputEditTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/seven_l"
+                            android:hint="ex) #카페 #집 #운동 #취미 .."
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/gray_dark"
+                            android:textColorHint="@color/black"
+                            android:textCursorDrawable="@android:color/holo_red_light"
+                            android:textSize="13dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp" />
+
+                    <Button
+                        android:id="@+id/plusButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seven_l"
+                        android:gravity="center"
+                        android:text="추가"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+
+                <HorizontalScrollView
+                    android:background="@color/white"
+                    android:id="@+id/scrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipgroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:chipSpacing="10dp"
+                        app:itemSpacing="10dp"
+                        app:lineSpacing="10dp"
+                        app:singleLine="true" />
+                </HorizontalScrollView>
+
+                <androidx.legacy.widget.Space
+
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 내용"
+                    android:textColor="#F06292"
+                    android:textSize="13dp" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/clubContentsInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="100"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/clubContentsEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/seven_l"
+                        android:hint="ex) 내용을 입려하세요."
+                        android:inputType="textMultiLine"
+                        android:maxEms="100"
+                        android:textColor="@color/gray_dark"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light"
+                        android:textSize="13dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# 파일"
+                    android:textColor="#F06292"
+                    android:textSize="13dp" />
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/uploadFileImageFilterButton"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:cropToPadding="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_photo"
+                    app:shapeAppearanceOverlay="@style/circle" />
+
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+
+                <com.royrodriguez.transitionbutton.TransitionButton
+                    android:id="@+id/transition_button"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/infoLinearLayout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="만들기"
+                    android:textColor="@android:color/white"
+                    app:defaultColor="#4DD0E1"
+                    app:loaderColor="@android:color/white" />
+
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

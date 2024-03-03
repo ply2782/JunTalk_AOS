@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:id="@+id/topRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/juntalk_logo" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/closeImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="창닫기"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/image_close" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/topRelativeLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/drawable_half_circle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/profileImageView"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/drawable_frame_picture"
+                    app:layout_constraintBottom_toTopOf="@+id/idTextInputLayout"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--LabelButton -->
+                <com.lid.lib.LabelButtonView
+                    android:id="@+id/insertPictureButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/drawable_white_background"
+                    android:backgroundTint="#03a9f4"
+                    android:fontFamily="@font/seven_l"
+                    android:gravity="left"
+                    android:text="프로필 \n사진 넣기"
+                    android:textColor="#ffffff"
+                    app:label_backgroundColor="#C2185B"
+                    app:label_distance="20dp"
+                    app:label_height="50dp"
+                    app:label_orientation="RIGHT_TOP"
+                    app:label_text="MUST"
+                    app:label_textSize="13dp"
+                    app:layout_constraintDimensionRatio="3:1"
+                    app:layout_constraintLeft_toLeftOf="@+id/profileImageView"
+                    app:layout_constraintRight_toRightOf="@+id/profileImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/profileImageView" />
+
+
+                <!--아이디 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintBottom_toTopOf="@+id/passwordTextInputLayout"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/insertPictureButton">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/idTextInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="아이디를 입력해주세요."
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/checkImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/drawable_gradationbottom"
+                    android:fontFamily="@font/seven_l"
+                    android:translationZ="10dp"
+                    android:text="중복확인"
+                    android:textColor="#00838F"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/idTextInputLayout"
+                    app:layout_constraintRight_toRightOf="@+id/idTextInputLayout"
+                    app:layout_constraintTop_toTopOf="@+id/idTextInputLayout" />
+
+                <!--<androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/checkImageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/exo_styled_controls_check"
+                    android:backgroundTint="#5CA9FB"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@+id/idTextInputLayout"
+                    app:layout_constraintRight_toRightOf="@+id/idTextInputLayout"
+                    app:layout_constraintTop_toTopOf="@+id/idTextInputLayout" />-->
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/checkLottieAnimation"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_marginBottom="20dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@+id/checkImageButton"
+                    app:layout_constraintRight_toRightOf="@+id/checkImageButton"
+                    app:layout_constraintTop_toTopOf="@+id/checkImageButton"
+                    app:lottie_autoPlay="false"
+                    app:lottie_fileName="checkmark.json"
+                    app:lottie_loop="false" />
+
+
+                <!--비밀번호 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintBottom_toTopOf="@+id/nameTextInputLayout"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/idTextInputLayout"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordTextInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="비밀번호를 입력해주세요."
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/judgeMentAboutPasswordLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout">
+
+                    <ImageView
+                        android:id="@+id/firstLevel"
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:background="#6B69F0AE"
+                        android:visibility="invisible"
+                        android:contentDescription="line" />
+
+                    <ImageView
+                        android:id="@+id/secondLevel"
+                        android:layout_width="100dp"
+                        android:contentDescription="secondLevel"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:background="#A969F0AE"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/thirdLevel"
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="thirdLevel"
+                        android:layout_weight="1"
+                        android:background="#16EF85"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <!--성함 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nameTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintBottom_toTopOf="@+id/genderRelativeLayout"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameTextInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="성함을 입력해주세요."
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--성별-->
+                <RelativeLayout
+                    android:id="@+id/genderRelativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTextInputLayout">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/genderTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/seven_b"
+                        android:text="성별"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <Space
+                        android:id="@+id/space"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/genderTextView" />
+
+
+                    <RadioGroup
+                        android:id="@+id/genderChoiceRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@+id/space"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <!--남자 버튼-->
+                        <RadioButton
+                            android:id="@+id/manRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/custom_click_radio_button_male"
+                            android:gravity="center"
+                            android:text="남자"
+                            android:textColor="@color/black" />
+                        <!--여자 버튼-->
+
+                        <RadioButton
+                            android:id="@+id/womanRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/custom_click_radio_button_female"
+                            android:gravity="center"
+                            android:text="여자"
+                            android:textColor="@color/black" />
+                    </RadioGroup>
+                </RelativeLayout>
+
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieAnmation"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="20dp"
+                    android:translationZ="10dp"
+                    app:elevation="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genderRelativeLayout"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="birthday.json"
+                    app:lottie_loop="true" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/birthDayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_b"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:hint="달력을 클릭하여 \n생년월일을 입력해주세요."
+                    android:textColorHint="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lottieAnmation" />
+
+
+                <!--spinner , textView-->
+                <LinearLayout
+                    android:id="@+id/phoneNumberLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/birthDayTextView">
+
+                    <Spinner
+                        android:id="@+id/firstSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/drawable_white_background" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/secondEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:background="@drawable/drawable_white_background"
+                        android:hint="1234"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColorHint="#80000000" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/thirdEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:background="@drawable/drawable_white_background"
+                        android:hint="5678"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColorHint="#80000000" />
+                </LinearLayout>
+
+
+                <!--교번 -->
+                <!--<com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/identificationTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeErrorColor="@android:color/holo_red_light"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@android:color/holo_red_light"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/identificationTextInputEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="교번을 입력해주세요."
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textCursorDrawable="@android:color/holo_red_light" />
+
+                </com.google.android.material.textfield.TextInputLayout>-->
+
+                <!--LabelButton -->
+                <com.lid.lib.LabelButtonView
+                    android:id="@+id/okButton"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/drawable_white_background"
+                    android:backgroundTint="#03a9f4"
+                    android:fontFamily="@font/seven_b"
+                    android:gravity="center"
+                    android:text="가입하기"
+                    android:textColor="#ffffff"
+                    app:label_backgroundColor="#C2185B"
+                    app:label_distance="20dp"
+                    app:label_height="50dp"
+                    app:label_orientation="RIGHT_TOP"
+                    app:label_text="MUST"
+                    app:label_textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="3:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+
+</layout>

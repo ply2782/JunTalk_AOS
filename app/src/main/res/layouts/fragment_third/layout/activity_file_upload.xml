@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="50dp">
+
+            <!-- 상단 레이아웃-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topRelativeLayout"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="80dp"
+                android:clipChildren="false">
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/closeImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/drawable_white_background"
+                    android:src="@drawable/image_close"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--LabelButton -->
+                <com.lid.lib.LabelButtonView
+                    android:id="@+id/okButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/drawable_white_background"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:fontFamily="@font/seven_l"
+                    android:gravity="center"
+                    android:text="업로드"
+                    android:textColor="#ffffff"
+                    app:label_backgroundColor="#A936D8ED"
+                    app:label_distance="20dp"
+                    app:label_height="20dp"
+                    app:label_orientation="RIGHT_TOP"
+                    app:label_text="."
+                    app:label_textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topRelativeLayout"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/seven_l"
+                android:textColor="@color/gray_dark"
+                android:text="# 카테고리"
+                android:textSize="15dp" />
+
+            <RadioGroup
+                android:id="@+id/selectCategoryRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleTextView"
+                android:layout_marginLeft="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/musicRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/seven_b"
+                    android:text="Music"
+                    android:textSize="20dp" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/videoRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/seven_b"
+                    android:text="Video"
+                    android:textSize="20dp" />
+            </RadioGroup>
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/titleTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/selectCategoryRadioGroup"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/seven_l"
+                android:textColor="@color/gray_dark"
+                android:text="# 파일 업로드" />
+
+            <!--LabelButton -->
+            <com.lid.lib.LabelButtonView
+                android:id="@+id/uploadButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleTextView2"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/drawable_white_background"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:fontFamily="@font/seven_l"
+                android:gravity="center"
+                android:text="파일 업로드"
+                android:textColor="#ffffff"
+                app:label_backgroundColor="#A936D8ED"
+                app:label_distance="20dp"
+                app:label_height="20dp"
+                app:label_orientation="RIGHT_TOP"
+                app:label_text="."
+                app:label_textSize="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/uploadButton"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/musicTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# Music File"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="15dp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/music_FileListRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/dialog_adapter_musicuploadlist_item"
+                    tools:visibility="visible" />
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/videoTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="# Video File"
+                    android:textSize="15dp"
+                    android:textColor="@color/gray_dark"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/video_FileListRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/adapter_fileupload_item"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/explainTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:visibility="gone"
+                    android:text="* 제목을 따로 설정하지 않으면 고유문자로 자동 입력됩니다."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

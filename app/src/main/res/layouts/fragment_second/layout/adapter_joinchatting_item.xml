@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="chattingListAdapter"
+            type="com.cross.juntalk2.second.OpenChattingListAdapter" />
+
+        <variable
+            name="roomModel"
+            type="com.cross.juntalk2.model.RoomModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="5dp"
+        android:background="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        app:rippleColor="@android:color/holo_red_light">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(rootView)->chattingListAdapter.moveToJoinChattingRoom(rootView,roomModel)}"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:translationZ="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageConstraintLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:onClick="@{(rootView)->chattingListAdapter.moveToJoinChattingRoom(rootView,roomModel)}">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="centerCrop"
+                    app:bindingMainRoomPhoto="@{roomModel.mainRoomPhoto}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/halfCircle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/contentLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageConstraintLayout"
+                android:layout_alignBottom="@+id/imageConstraintLayout"
+                android:layout_toLeftOf="@+id/currentPeopleLinearLayout"
+                android:layout_toRightOf="@+id/imageConstraintLayout"
+                android:onClick="@{(rootView)->chattingListAdapter.moveToJoinChattingRoom(rootView,roomModel)}"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/seven_l"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@{roomModel.room_Title}"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    tools:text="제목" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/seven_l"
+                    android:maxLines="2"
+                    android:onClick="@{(rootView)->chattingListAdapter.moveToJoinChattingRoom(rootView,roomModel)}"
+                    android:text="@{roomModel.joinRoomContent}"
+                    android:textColor="@color/black_light"
+                    android:textSize="13dp"
+                    tools:text="내용" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp" />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contentLinearLayout"
+                android:layout_toRightOf="@+id/imageConstraintLayout"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipgroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacing="10dp"
+                    android:background="@color/white"
+                    app:itemSpacing="10dp"
+                    app:lineSpacing="10dp"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:id="@+id/currentPeopleLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_users_people_icon"
+                    android:scaleType="centerCrop" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/currentJoinCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:text="@{String.valueOf(roomModel.room_joinCount)}"
+                    android:textColor="#F06292"
+                    android:textSize="15dp"
+                    tools:text="13" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/currentPeopleLinearLayout"
+                android:layout_alignBottom="@+id/contentLinearLayout"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/contentLinearLayout">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/countTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/drawable_drawcircle"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:text="@{String.valueOf(roomModel.unreadCount)}"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp"
+                    android:visibility='@{String.valueOf(roomModel.unreadCount).equals("0") ? View.GONE : View.VISIBLE}'
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="999" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

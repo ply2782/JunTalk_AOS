@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/main"
+        android:enabled="true"
+        android:icon="@drawable/ic_users_people_icon"
+        android:title="메인"
+        android:iconTint="@android:color/holo_blue_bright"
+        android:iconTintMode="src_in"
+        android:tooltipText="메인 입니다."
+        app:showAsAction="withText|ifRoom" />
+
+    <item
+        android:id="@+id/chatting"
+        android:enabled="true"
+        android:icon="@drawable/ic_commonchatting"
+        android:title="채팅"
+        android:iconTint="@android:color/holo_blue_bright"
+        android:iconTintMode="src_in"
+        android:tooltipText="채팅 입니다."
+        app:showAsAction="withText|ifRoom" />
+
+
+
+
+    <item
+        android:id="@+id/board"
+        android:enabled="true"
+        android:icon="@drawable/ic_image_filedown"
+        android:title="창고"
+        android:iconTint="@android:color/holo_blue_bright"
+        android:iconTintMode="src_in"
+        android:tooltipText="창고 입니다."
+        app:showAsAction="withText|ifRoom" />
+    <item
+        android:id="@+id/bulletinBoard"
+        android:enabled="true"
+        android:icon="@drawable/ic_imoticon"
+        android:title="게시판"
+        android:iconTint="@android:color/holo_blue_bright"
+        android:iconTintMode="src_in"
+        android:tooltipText="게시판 입니다."
+        app:showAsAction="withText|ifRoom" />
+
+    <item
+        android:id="@+id/club"
+        android:enabled="true"
+        android:icon="@drawable/ic_mybox"
+        android:iconTint="@android:color/holo_blue_bright"
+        android:iconTintMode="src_in"
+        android:title="클럽"
+        android:tooltipText="클럽방 입니다."
+        app:showAsAction="withText|ifRoom" />
+
+
+</menu>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <ImageView
+        android:id="@+id/mainPhotoImageView"
+        android:layout_width="50dp"
+        android:layout_centerVertical="true"
+        android:layout_height="50dp"
+        tools:src="@drawable/image_man_black"
+        android:layout_marginLeft="20dp" />
+
+
+    <TextView
+        android:id="@+id/nickNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/seven_l"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/mainPhotoImageView"
+        android:layout_alignBottom="@+id/mainPhotoImageView"
+        android:layout_alignTop="@+id/mainPhotoImageView"
+        tools:text="닉네임" />
+
+    <TextView
+        android:id="@+id/regDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/seven_l"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/mainPhotoImageView"
+        android:layout_alignTop="@+id/mainPhotoImageView"
+        tools:text="21/12/12 (수) 18:00" />
+
+    <TextView
+        android:id="@+id/conversationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/seven_l"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:layout_below="@+id/nickNameTextView"
+        android:layout_alignLeft="@+id/nickNameTextView"
+        tools:text="대화내용" />
+
+</RelativeLayout>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bulletinBoardModel"
+            type="com.cross.juntalk2.model.BulletinBoardModel" />
+
+        <variable
+            name="bulletinBoardViewHolder"
+            type="com.cross.juntalk2.fourth.BulletinBoardAdapter.BulletinBoardViewHolder" />
+
+        <variable
+            name="bulletinBoardAdapter"
+            type="com.cross.juntalk2.fourth.BulletinBoardAdapter" />
+
+        <variable
+            name="position"
+            type="int" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="20dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--상단 레이아웃-->
+                <RelativeLayout
+                    android:id="@+id/topRelativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/personImageView"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/white"
+                        android:onClick="@{(rootView)-> bulletinBoardAdapter.userPhotoMove(rootView, bulletinBoardModel.userMainPhoto)}"
+                        app:myImage="@{bulletinBoardModel.userMainPhoto}"
+                        app:shapeAppearanceOverlay="@style/circle"
+                        tools:src="@drawable/image_woman_purple" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/personNickNameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_toRightOf="@+id/personImageView"
+                        android:fontFamily="@font/seven_l"
+                        android:text="@{bulletinBoardModel.userId}"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        tools:text="난쭌이다" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/blockImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/personImageView"
+                        android:layout_alignBottom="@+id/personImageView"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/transparent"
+                        android:onClick="@{(rootView)->bulletinBoardAdapter.blockImageButton(rootView,bulletinBoardModel,position)}"
+                        android:src="@drawable/ic_three_dot" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/contentLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topRelativeLayout"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_weight="1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/contentTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/seven_l"
+                        android:text="@{bulletinBoardModel.bulletin_Content}"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        tools:text="안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!안녕하세요 잘 부탁드려요 !!" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_weight="1" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/imageOrVideoRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        app:bindingImageOrVideoAdapter="@{bulletinBoardModel.allUrls}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/adapter_imageorvideo_item" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bottomResponse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contentLinearLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/heartImageButton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:onClick="@{()->bulletinBoardAdapter.api_heartClick(bulletinBoardModel.bulletin_Uuid , bulletinBoardModel.userId,position , bulletinBoardModel.bulletin_LikeCount)}"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_image_heart"
+                        app:imageButtonTint="@{bulletinBoardModel.bulletin_isUserLike}" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/heartCountTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/seven_l"
+                        android:text="@{String.valueOf(bulletinBoardModel.bulletin_LikeCount)}"
+                        android:textColor="@color/black"
+                        android:textSize="10dp"
+                        tools:text="1000" />
+
+                    <Space
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_image_comment"
+                        android:onClick="@{()->bulletinBoardAdapter.api_BulletinCommentList(bulletinBoardModel.bulletin_Uuid, position)}" />
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/commentCountTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/seven_l"
+                        android:text="@{String.valueOf(bulletinBoardModel.bulletin_CommentCount)}"
+                        android:textColor="@color/black"
+                        android:textSize="10dp"
+                        tools:text="1000" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/regDateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bottomResponse"
+                    android:layout_alignBottom="@+id/bottomResponse"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@+id/bottomResponse"
+                    android:gravity="right"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="15dp"
+                    app:changeRegDateTime="@{bulletinBoardModel.bulletin_RegDate}"
+                    tools:text="10분전전" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

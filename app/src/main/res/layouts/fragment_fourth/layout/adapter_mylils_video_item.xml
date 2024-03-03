@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="lilsVideoListModel"
+            type="com.cross.juntalk2.model.VideoListModel" />
+
+        <variable
+            name="myLilsVideoListAdapterViewHolder"
+            type="com.cross.juntalk2.fourth.MyLilsVideoAdapter.MyLilsVideoListAdapterViewHolder" />
+
+        <variable
+            name="myLilsVideoListAdapter"
+            type="com.cross.juntalk2.fourth.MyLilsVideoAdapter" />
+
+        <variable
+            name="position"
+            type="int" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:keepScreenOn="true">
+
+        <FrameLayout
+            android:background="@android:color/transparent"
+            android:id="@+id/playerViewFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.exoplayer2.ui.StyledPlayerView
+                android:id="@+id/styledPlayerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:animation_enabled="true"
+                app:resize_mode="fit"
+                app:show_buffering="always"
+                app:surface_type="surface_view"
+                app:use_artwork="true"
+                app:use_controller="false" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/volumeImageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:tint="#F06292" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/thumbNailImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+        <!-- 상단 레이아웃-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            android:clipChildren="false">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/logoImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/juntalk_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/makeVideoListImageButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:onClick="@{(rootView)->myLilsVideoListAdapter.makeVideo(rootView)}"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_plus"
+                android:tint="#64B5F6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/drawable_gradationbottom"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:id="@+id/infoLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/personImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="@{(rootView)->myLilsVideoListAdapter.profile(rootView , lilsVideoListModel)}"
+                    android:scaleType="centerCrop"
+                    app:myImage="@{lilsVideoListModel.userMainPhoto}"
+                    app:shapeAppearanceOverlay="@style/circle"
+                    tools:src="@drawable/image_man_black" />
+
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/seven_l"
+                    android:text="@{lilsVideoListModel.userId}"
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    tools:text="NickName" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mainContentTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoLinearLayout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/seven_l"
+                android:gravity="center_vertical|left"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@{lilsVideoListModel.content}"
+                android:textColor="@color/white"
+                android:textSize="13dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hashTagTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mainContentTextView"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/seven_l"
+                android:gravity="center_vertical|left"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@{lilsVideoListModel.hashTagList}"
+                android:textColor="@color/white"
+                android:textSize="13dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/optionLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/responseImageButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                android:onClick="@{(rootView)->myLilsVideoListAdapter.clickReply(rootView,lilsVideoListModel,position)}"
+                android:src="@drawable/message"
+                android:tint="#4FC3F7" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/responseCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:text="@{String.valueOf(lilsVideoListModel.replyCount)}"
+                android:textColor="#4FC3F7"
+                android:textSize="13dp"
+                tools:text="1" />
+
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieAnmation"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:translationZ="10dp"
+                    app:elevation="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genderRelativeLayout"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="like-heart-animation.json"
+                    app:lottie_loop="true" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/likeImageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="@{(rootView)->myLilsVideoListAdapter.clickLike(rootView , lilsVideoListModel,position)}"
+                    android:src="@drawable/like"
+                    android:tint="#4FC3F7" />
+            </FrameLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/likeCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:text="@{String.valueOf(lilsVideoListModel.likeCount)}"
+                android:textColor="#4FC3F7"
+                android:textSize="13dp"
+                tools:text="1" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/blockImageButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                android:onClick="@{(rootView)->myLilsVideoListAdapter.blockLilsVideo(rootView, lilsVideoListModel , position)}"
+                android:src="@drawable/ic__351953_bin_cancel_close_delete_garbage_icon"
+                android:tint="#4FC3F7" />
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--첫번쨰-->
+    <font
+        android:font="@font/seven_l"
+        app:font="@font/seven_l" />
+    <!--두번쨰-->
+    <font
+        android:font="@font/seven_b"
+        app:font="@font/seven_b" />
+    <!--세번쨰-->
+    <font
+        android:font="@font/seven_m"
+        app:font="@font/seven_m" />
+
+
+</font-family>

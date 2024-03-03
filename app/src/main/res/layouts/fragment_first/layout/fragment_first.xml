@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="java.util.List" />
+
+        <import type="com.cross.juntalk2.model.FriendModel" />
+
+        <variable
+            name="firstFragment"
+            type="com.cross.juntalk2.first.FirstFragment" />
+
+        <variable
+            name="myModel"
+            type="com.cross.juntalk2.model.MyModel" />
+
+
+        <variable
+            name="friendModelList"
+            type="List&lt;FriendModel&gt;" />
+
+        <variable
+            name="friendBirthdayModelList"
+            type="List&lt;FriendModel&gt;" />
+
+        <variable
+            name="unReadCount"
+            type="int" />
+    </data>
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.SampleDrawer.PopupOverlay">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/colorPrimary"
+                        android:visibility="gone"
+                        app:popupTheme="@style/Theme.SampleDrawer.PopupOverlay" />
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipChildren="false"
+                        android:paddingBottom="50dp">
+
+
+                        <!-- 상단 레이아웃-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/topRelativeLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:clipChildren="false">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/logoImageView"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="20dp"
+                                android:src="@drawable/juntalk_logo"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <!-- 옵션 이미지버튼-->
+                            <androidx.appcompat.widget.AppCompatImageButton
+                                android:id="@+id/optionImageButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/image_option"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <androidx.appcompat.widget.AppCompatImageButton
+                                android:id="@+id/noticeImageButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/image_notice"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintRight_toLeftOf="@+id/optionImageButton"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/unReadCountTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-20dp"
+                                android:layout_marginRight="30dp"
+                                android:background="@drawable/drawable_circle"
+                                android:fontFamily="@font/seven_l"
+                                android:gravity="center"
+                                android:text="@{String.valueOf(unReadCount).equals(`0`) ? String.valueOf(`0`) : String.valueOf(unReadCount)}"
+                                android:textColor="@color/white"
+                                android:textSize="10dp"
+                                android:visibility="@{String.valueOf(unReadCount).equals(`0`) ? View.GONE  : View.VISIBLE}"
+                                app:layout_constraintDimensionRatio="1:1"
+                                app:layout_constraintLeft_toLeftOf="@+id/noticeImageButton"
+                                app:layout_constraintRight_toRightOf="@+id/noticeImageButton"
+                                app:layout_constraintTop_toTopOf="@+id/noticeImageButton"
+                                tools:text="9" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/openImageView"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/image_open_sign"
+                                android:visibility="gone"
+                                app:layout_constraintRight_toRightOf="@+id/noticeImageButton"
+                                app:layout_constraintTop_toTopOf="@+id/noticeImageButton" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/closeImageView"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/image_close_sign"
+                                android:visibility="gone"
+                                app:layout_constraintRight_toRightOf="@+id/noticeImageButton"
+                                app:layout_constraintTop_toTopOf="@+id/noticeImageButton" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <!-- 제목 텍스트뷰-->
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/friendTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/topRelativeLayout"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/seven_l"
+                            android:text="# 친구"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                        <RelativeLayout
+                            android:id="@+id/myInfoRelativeLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/friendTextView">
+
+                            <!-- 사진 이미지뷰-->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/personImageView"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="20dp"
+                                android:background="@android:color/transparent"
+                                app:myImage="@{myModel.userMainPhoto}"
+                                app:shapeAppearanceOverlay="@style/circle" />
+
+
+                            <!-- 닉네임 텍스트뷰 -->
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/personTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/personImageView"
+                                android:layout_alignBottom="@+id/personImageView"
+                                android:layout_marginLeft="20dp"
+                                android:layout_toRightOf="@+id/personImageView"
+                                android:fontFamily="@font/seven_l"
+                                android:gravity="center"
+                                android:text="@{myModel.userId}"
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
+
+                            <!-- 편집이미지 버튼-->
+                            <androidx.appcompat.widget.AppCompatImageButton
+                                android:id="@+id/editImageButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/image_edit"
+                                android:onClick="@{(rootView)->firstFragment.editImageButtonOnClick(rootView)}" />
+                        </RelativeLayout>
+
+                        <!--생일 레이아웃-->
+                        <RelativeLayout
+                            android:id="@+id/personBirthdayRelativeLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/myInfoRelativeLayout"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:animateLayoutChanges="true">
+                            <!-- 제목 텍스트뷰-->
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/birthdayTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/seven_l"
+                                android:text="# 생일"
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/birthdayRecyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/birthdayTextView"
+                                android:orientation="horizontal"
+                                android:visibility="gone"
+                                app:bindingBirthdayAdapter="@{friendBirthdayModelList}"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/adapter_birthday"
+                                tools:visibility="visible" />
+                        </RelativeLayout>
+
+                        <!--중보요청 레이아웃-->
+                        <RelativeLayout
+                            android:id="@+id/requestRelativeLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/personBirthdayRelativeLayout"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:animateLayoutChanges="true">
+                            <!-- 제목 텍스트뷰-->
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/requestTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/seven_l"
+                                android:text="# Today Upload"
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/requestRecyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/requestTextView"
+                                android:orientation="horizontal"
+                                android:visibility="gone"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/adapter_prayrequest_item"
+                                tools:visibility="visible" />
+                        </RelativeLayout>
+
+
+                        <!--내 친구들 레이아웃-->
+                        <RelativeLayout
+                            android:id="@+id/myFriendRelativeLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/requestRelativeLayout"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:animateLayoutChanges="true">
+                            <!-- 제목 텍스트뷰-->
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/myFriendTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/seven_l"
+                                android:text="# 친구들"
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
+
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/myFriendRecyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/myFriendTextView"
+                                android:layout_marginTop="20dp"
+                                android:orientation="vertical"
+                                app:bindingFirstAdapter="@{friendModelList}"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/adapter_first" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.core.widget.NestedScrollView>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/navigationView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+                app:headerLayout="@layout/navigation_header_view"
+                app:itemTextColor="@color/black_light"
+                app:subheaderColor="@android:color/holo_blue_dark"
+                app:menu="@menu/drawer_navigation_menu" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+</layout>

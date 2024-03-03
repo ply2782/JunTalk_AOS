@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainActivity"
+            type="com.cross.juntalk2.main.MainActivity" />
+    </data>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/policyLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_b"
+                android:padding="20dp"
+                android:text="이용 정책약관 관련 동의"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/lookPolicyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/drawable_viewline_gradation"
+                android:fontFamily="@font/seven_l"
+                android:text="정책보기"
+                android:textColor="@color/black" />
+
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_l"
+                android:padding="10dp"
+                android:text="위의 개인정보처리방침에 동의합니다."
+                android:textColor="@color/black_light"
+                android:textSize="13dp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/drawable_custom_checkbox"
+                android:button="@android:color/transparent" />
+
+
+
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainLoginConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seven_b"
+                android:text="Be"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/textSwitcher"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+
+            <LinearLayout
+
+                android:id="@+id/managerModeLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/textSwitcher"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seven_l"
+                    android:gravity="center"
+                    android:text="관리자 로그인"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/idTextView"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/seven_l"
+                        android:padding="10dp"
+                        android:text="아이디 : "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/idEditTextView"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/idTextView"
+                        android:background="@color/white"
+                        android:hint="아이디.."
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black_light"
+                        android:textSize="13dp" />
+                </RelativeLayout>
+
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/passwordTextView"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/seven_l"
+                        android:padding="10dp"
+                        android:text="비밀번호 : "
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/passwordEditTextView"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/passwordTextView"
+                        android:background="@color/white"
+                        android:hint="비밀번호.."
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black_light"
+                        android:textSize="13dp" />
+                </RelativeLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatToggleButton
+                        android:id="@+id/loginButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/drawable_viewline_gradation"
+                        android:hapticFeedbackEnabled="true"
+                        android:text="로그인"
+                        android:textColor="@color/black"
+                        android:textOff="로그인"
+                        android:textOn="로그인 중..."
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextSwitcher
+                android:id="@+id/textSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/mainFloatingActionButton"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/managerModeLinearLayout" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/mainFloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:onClick="@{(rootView)->mainActivity.animateFab(rootView)}"
+                android:src="@drawable/juntalk_logo"
+                app:backgroundTint="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSwitcher" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/clickLottieAnimation"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/mainFloatingActionButton"
+                app:layout_constraintLeft_toLeftOf="@+id/mainFloatingActionButton"
+                app:layout_constraintRight_toRightOf="@+id/mainFloatingActionButton"
+                app:lottie_autoPlay="false"
+                app:lottie_fileName="boom.json"
+                app:lottie_loop="false" />
+
+            <!--<androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/kakaoImageButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/naver"
+                android:visibility="invisible"
+                app:layout_constraintLeft_toRightOf="@+id/mainFloatingActionButton"
+                app:layout_constraintTop_toBottomOf="@+id/mainFloatingActionButton"
+                tools:visibility="visible" />-->
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/naverImageButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:onClick="@{(rootView)->mainActivity.certify(rootView)}"
+                android:src="@drawable/kakao"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mainFloatingActionButton"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</layout>

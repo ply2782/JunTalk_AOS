@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.HashMap" />
+        <import type="java.util.Map" />
+
+        <variable
+            name="RequestForAdminAdapter"
+            type="com.cross.juntalk2.first.RequestForAdminAdapter" />
+
+        <variable
+            name="requestContentMap"
+            type="Map&lt;String,Object&gt;" />
+
+    </data>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(rootView)->RequestForAdminAdapter.clickEvent(rootView , requestContentMap)}">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/itemTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/seven_l"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text='@{(String)requestContentMap.get("requestContent")}'
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            tools:text="오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다오늘 처음 답니다." />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bulletinCommentModel"
+            type="com.cross.juntalk2.model.BulletinCommentModel" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/regDateTextView"
+            android:layout_width="match_parent"
+            tools:text="2022-10-10 수요일"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/seven_l"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="2022-10-10"
+            android:textColor="@color/black_light"
+            android:textSize="13dp" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/drawable_viewline_gradation"
+            android:fontFamily="@font/seven_l"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:text="현재 건의목록이 없습니다."
+            android:textSize="13dp"
+            android:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topRelativeLayout"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="80dp"
+            android:clipChildren="false">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/closeImageButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/image_close"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 옵션 이미지버튼-->
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/optionImageButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/image_edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/noticeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topRelativeLayout"
+            android:background="#6CD5D2D2"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:fontFamily="@font/seven_l"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="건의사항을 적어주시면 보다 나은 서비스가 될 수 있도록 노력하겠습니다."
+            android:textColor="@color/black"
+            android:textSize="13dp" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/noticeTextView">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/requestRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/adapter_request_for_admin_item" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+</layout>

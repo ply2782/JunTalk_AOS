@@ -74,7 +74,7 @@ public class KakaoRetrofitClient {
 
         if (serverInterface == null) {
             serverInterface = new Retrofit.Builder()
-                    .baseUrl("https://dapi.kakao.com/")
+                    .baseUrl("")
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson)) // retrofit2 json 받기

@@ -77,8 +77,7 @@ public class RetrofitClient {
             okHttpBuilder.retryOnConnectionFailure(true);
 
             serverInterface = new Retrofit.Builder()
-                    .baseUrl("http://ply2782ply2782.cafe24.com:8080/")
-                    /*.baseUrl("http://192.168.25.18:8080/")*/
+                    .baseUrl("")                    
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson)) // retrofit2 json 받기
